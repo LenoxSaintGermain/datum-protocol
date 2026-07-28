@@ -67,6 +67,8 @@ Each trailer must correspond to an entry in `commits.json`, and each `Datum-Supe
 
 The CI gate at `.github/workflows/canon-gate.yml` enforces four things now: canon files validate against the schema, conformance vectors validate against theirs, the conformance suite produces its expected result profile, and **no pull request may change `spec/` without also changing `canon/`.**
 
-That last rule is the self-governance property in its enforceable form. A spec edit with no corresponding canon commit fails CI.
+That last rule is the self-governance property in its enforceable form. It has been tested in both directions: a pull request touching only `spec/` is rejected, and the same pull request passes once `canon/` is touched. A gate that has never been made to fail is decoration.
 
-What is *not* enforced yet: running `datum.check` against this canon to validate that a proposed spec change does not contradict a standing position. That needs the reference implementation and arrives with it. Claiming it now would be the one unforced error available — see the threat model on low coverage being mistaken for conformance.
+**Its known limitation, stated rather than left to be discovered.** The rule is path-based. It checks that files under `canon/` changed — not that the *claims* changed coherently with the spec edit — so it is satisfiable by editing this README. That is a real gap, and it has the same shape as the coverage problem in §6: the check is cheap and honest about what it covers, and low coverage mistaken for conformance is the failure worth naming precisely rather than vaguely.
+
+What closes it: running `datum.check` against this canon so a proposed spec change is validated against standing positions. That needs the reference implementation and arrives with it. Claiming that capability now would be the one unforced error available in this repository.
