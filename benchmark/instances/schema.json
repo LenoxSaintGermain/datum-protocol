@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/LenoxSaintGermain/datum-protocol/benchmark/instances/schema.json",
+  "title": "GREATGAME instance",
+  "description": "One annotated canon-consistency instance. Formalizes section 4 of benchmark/greatgame-v0.1.md.",
+  "type": "object",
+  "required": ["id", "class", "subject", "predicate", "assertions", "gold_verdict", "difficulty", "hazards"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^gg_[0-9]{3}$",
+      "description": "Stable instance identifier."
+    },
+    "class": {
+      "enum": ["conflict", "supersession", "apparent", "uncovered"],
+      "description": "Instance class per section 5. Target distribution: conflict ~40%, supersession ~20%, apparent ~30%, uncovered ~10%."
+    },
+    "constraint_type": {
+      "enum": ["cardinality", "domain", "temporal", "exclusion", "referential", "derivation", "authority"],
+      "description": "Spec section 2 constraint type. Required when class is 'conflict'; meaningless otherwise."
+    },
+    "subject": {
+      "type": "string",
+      "description": "Canonical entity name, e.g. 'Watson'."
+    },
+    "predicate": {
+      "type": "string",
+      "description": "Snake_case predicate, e.g. 'wound_location'."
+    },
+    "assertions": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The textual assertions in tension. An 'uncovered' instance carries exactly one — the candidate assertion the corpus never addresses.",
+      "items": {
+        "type": "object",
+        "required": ["value", "source", "locator", "authority", "narrator_belief", "explicit"],
+        "additionalProperties": false,
+        "properties": {
+          "value": { "type": "string" },
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Z]{4}$",
+            "description": "Jay Finley Christ four-letter abbreviation. Non-negotiable — it is how the scholarly community this dataset rests on cites."
+          },
+          "locator": {
+            "type": "object",
+            "required": ["char_span"],
+            "additionalProperties": false,
+            "properties": {
+              "chapter": { "type": "integer", "minimum": 1 },
+              "char_span": {
+                "type": "array",
+                "items": { "type": "integer", "minimum": 0 },
+                "minItems": 2,
+                "maxItems": 2,
+                "description": "Authoritative locator into the pinned, checksummed edition. Character offsets rot silently if the edition is not pinned — see corpus.json."
+              },
+              "excerpt": {
+                "type": "string",
+                "maxLength": 200,
+                "description": "Short locator excerpt only. Never a passage."
+              }
+            }
+          },
+          "authority": {
+            "enum": ["binding", "derived", "proposed", "apocryphal"],
+            "description": "Spec section 1.2 authority tier. Two sources disagreeing is a conflict only at equal binding force."
+          },
+          "narrator_belief": {
+            "type": "boolean",
+            "description": "True when the assertion reflects what the narrator believed at the time rather than what the text asserts as fact. This field is what lets a system reason about supersession correctly."
+          },
+          "explicit": {
+            "type": "boolean",
+            "description": "False when the assertion must be inferred rather than read."
+          }
+        }
+      }
+    },
+    "gold_verdict": {
+      "enum": ["conflict", "supersession", "conform", "uncovered"],
+      "description": "Adjudicated verdict. Note 'apparent' instances carry gold_verdict 'conform' — the class describes the trap, the verdict describes the truth."
+    },
+    "severity": {
+      "enum": ["blocking", "advisory"],
+      "description": "Required when gold_verdict is 'conflict'."
+    },
+    "difficulty": {
+      "enum": ["easy", "medium", "hard"]
+    },
+    "hazards": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["implicit", "pronoun", "epithet", "cross_story", "temporal_inference", "dialogue_attribution", "unreliable_narrator", "numeric"]
+      },
+      "description": "Drives Task A error analysis. Per-hazard recall is reported separately: 'recall is 0.71' is a number; 'recall collapses to 0.34 on temporal inference' is a paper."
+    },
+    "resolution": {
+      "type": "string",
+      "description": "Required when class is 'apparent'. Why the apparent conflict resolves — different referent, different time, different speaker."
+    },
+    "explanatory_passage": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Required when class is 'supersession'. The in-world explanation of the change.",
+      "properties": {
+        "source": { "type": "string", "pattern": "^[A-Z]{4}$" },
+        "char_span": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0 },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "scholarly_treatments": {
+      "type": "array",
+      "description": "Paraphrased summaries with attribution. Never reproduced argument text — verbatim scholarly text is a defect in the dataset, not a citation.",
+      "items": {
+        "type": "object",
+        "required": ["summary", "attributed_to", "type", "accepted_by_annotators"],
+        "additionalProperties": false,
+        "properties": {
+          "summary": {
+            "type": "string",
+            "description": "Written in the annotator's own words."
+          },
+          "attributed_to": {
+            "type": "string",
+            "description": "Author, Work, Year."
+          },
+          "type": {
+            "enum": ["derived_reconciliation", "chronological_placement", "disputed", "dismissal"]
+          },
+          "accepted_by_annotators": {
+            "type": "boolean",
+            "description": "A contradiction scholars have explained away is still a contradiction in the text. A treatment being accepted does NOT change gold_verdict — it populates the resolutions array, which is a different thing."
+          }
+        }
+      }
+    },
+    "annotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Provenance of the label itself. Two independent annotators, disagreements adjudicated in a third pass and recorded rather than erased.",
+      "properties": {
+        "annotator_a": { "type": "string" },
+        "annotator_b": { "type": "string" },
+        "initial_agreement": { "type": "boolean" },
+        "disagreement_note": { "type": "string" },
+        "adjudicated_by": { "type": "string" }
+      }
+    },
+    "held_out": {
+      "type": "boolean",
+      "default": false,
+      "description": "True for the 10-instance held-out split, published as hashes only."
+    },
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "class": { "const": "conflict" } }, "required": ["class"] },
+      "then": { "required": ["constraint_type", "severity"] }
+    },
+    {
+      "if": { "properties": { "class": { "const": "apparent" } }, "required": ["class"] },
+      "then": { "required": ["resolution"] }
+    },
+    {
+      "if": { "properties": { "class": { "const": "supersession" } }, "required": ["class"] },
+      "then": { "required": ["explanatory_passage"] }
+    }
+  ]
+}
