@@ -1,0 +1,144 @@
+{
+  "id": "L5-008",
+  "level": "L5-merge",
+  "requirement": "spec/datum-v0.2.md#5-merge-semantics",
+  "normative": "MUST",
+  "description": "a derived claim with changed inputs auto-recomputes, and is flagged stale when recomputation is not deterministic",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_in",
+        "node": "nd_7f3a2c",
+        "predicate": "birth_year",
+        "value": "1204",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_main"
+        },
+        "status": "canon"
+      },
+      {
+        "id": "cl_in2",
+        "node": "nd_7f3a2c",
+        "predicate": "birth_year",
+        "value": "1198",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_prop"
+        },
+        "status": "canon"
+      },
+      {
+        "id": "cl_der",
+        "node": "nd_7f3a2c",
+        "predicate": "age_at_fall",
+        "value": "27",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "derived",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_prop"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_base",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "base",
+        "changes": [],
+        "supersedes": []
+      },
+      {
+        "id": "cm_main",
+        "parents": [
+          "cm_base"
+        ],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "main advance",
+        "changes": [],
+        "supersedes": []
+      },
+      {
+        "id": "cm_prop",
+        "parents": [
+          "cm_base"
+        ],
+        "author": "user:lenox",
+        "authority": "proposed",
+        "message": "proposal advance",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_main",
+        "kind": "main"
+      },
+      {
+        "name": "proposal/rin",
+        "head": "cm_prop",
+        "kind": "proposal"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "derivation",
+        "severity": "advisory"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.merge",
+    "principal": "user:lenox",
+    "args": {
+      "from": "proposal/rin",
+      "into": "main",
+      "base": "cm_base"
+    }
+  },
+  "expect": [
+    {
+      "path": "$.status",
+      "op": "eq",
+      "value": "merged"
+    },
+    {
+      "path": "$.recomputed",
+      "op": "exists"
+    }
+  ]
+}

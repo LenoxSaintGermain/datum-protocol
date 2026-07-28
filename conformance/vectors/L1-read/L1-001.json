@@ -1,0 +1,89 @@
+{
+  "id": "L1-001",
+  "level": "L1-read",
+  "requirement": "spec/datum-v0.2.md#41-datumread",
+  "normative": "MUST",
+  "description": "read returns canon claims, each carrying provenance and originating commit",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.read",
+    "principal": "agent:showrunner",
+    "args": {
+      "node_ids": [
+        "nd_7f3a2c"
+      ],
+      "branch": "main"
+    }
+  },
+  "expect": [
+    {
+      "path": "$.claims",
+      "op": "length",
+      "value": 1
+    },
+    {
+      "path": "$.claims[?id=cl_9b21].value",
+      "op": "eq",
+      "value": "green"
+    },
+    {
+      "path": "$.claims[*]",
+      "op": "each_has",
+      "value": "provenance",
+      "note": "A claim without provenance cannot be cited, and a verdict without receipts is an opinion."
+    },
+    {
+      "path": "$.claims[?id=cl_9b21].provenance.commit",
+      "op": "eq",
+      "value": "cm_0044"
+    }
+  ]
+}

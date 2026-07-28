@@ -1,0 +1,81 @@
+{
+  "id": "L4-004",
+  "level": "L4-authority",
+  "requirement": "spec/datum-v0.2.md#81-extraction-is-an-adapter-not-part-of-the-protocol",
+  "normative": "MUST",
+  "description": "machine-extracted claims default to proposed and cannot be asserted as binding",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.propose",
+    "principal": "agent:extractor",
+    "args": {
+      "branch_from": "main",
+      "author": "agent:extractor",
+      "rationale": "Extracted from Ep. 4 script",
+      "changes": [
+        {
+          "op": "assert",
+          "node": "nd_7f3a2c",
+          "predicate": "rank",
+          "value": "Warden",
+          "authority": "binding"
+        }
+      ],
+      "extractor": {
+        "name": "claim-extract",
+        "version": "0.3.1"
+      }
+    }
+  },
+  "expect": [
+    {
+      "path": "$.claims[?predicate=rank].authority",
+      "op": "eq",
+      "value": "proposed"
+    },
+    {
+      "path": "$.claims[?predicate=rank].provenance.extractor",
+      "op": "exists"
+    }
+  ],
+  "rationale": "Extraction cannot create canon. It can only ask. An implementation that honours a requested binding authority from an extractor has made model quality the ceiling on canon integrity."
+}

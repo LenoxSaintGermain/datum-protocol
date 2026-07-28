@@ -1,0 +1,116 @@
+{
+  "id": "L1-004",
+  "level": "L1-read",
+  "requirement": "spec/datum-v0.2.md#85-reader-side-enforcement-is-policy-with-a-mandatory-flag",
+  "normative": "MUST",
+  "description": "permissive mode returns contested claims flagged, with the conflicting claim attached",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      },
+      {
+        "id": "cl_9b99",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "blue",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "episode-7-draft",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0046"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      },
+      {
+        "id": "cm_0046",
+        "parents": [
+          "cm_0044"
+        ],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Assert blue eyes without superseding green \u2014 an unresolved dispute",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0046",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.read",
+    "principal": "agent:showrunner",
+    "args": {
+      "node_ids": [
+        "nd_7f3a2c"
+      ],
+      "branch": "main",
+      "mode": "permissive"
+    }
+  },
+  "expect": [
+    {
+      "path": "$.claims[?id=cl_9b21].contested",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "path": "$.claims[?id=cl_9b21].conflicts_with",
+      "op": "exists"
+    }
+  ],
+  "rationale": "Threat model T10. The contested flag must appear in the payload the model actually sees; handing a generation context a disputed fact without marking it disputed is worse than not answering. The spec mandates this and cannot enforce it \u2014 this vector is the enforcement."
+}

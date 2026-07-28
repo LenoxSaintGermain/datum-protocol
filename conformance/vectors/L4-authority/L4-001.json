@@ -1,0 +1,95 @@
+{
+  "id": "L4-001",
+  "level": "L4-authority",
+  "requirement": "spec/datum-v0.2.md#43-datumpropose",
+  "normative": "MUST",
+  "description": "an agent principal may not call datum.commit",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.commit",
+    "principal": "agent:showrunner",
+    "args": {
+      "into": "main",
+      "authority": "binding",
+      "message": "Ratify Rin's rank",
+      "changes": [
+        {
+          "op": "assert",
+          "claim": "cl_new",
+          "node": "nd_7f3a2c",
+          "predicate": "rank",
+          "value": "Warden"
+        }
+      ]
+    }
+  },
+  "expect": [
+    {
+      "path": "$.status",
+      "op": "eq",
+      "value": "forbidden"
+    },
+    {
+      "path": "$.claims[?id=cl_new]",
+      "op": "absent"
+    }
+  ],
+  "rationale": "The safety property of the entire protocol. Autonomous systems can enrich canon at unlimited volume without any single one of them being able to corrupt it. An implementation failing this vector has an agent with write access to truth, whatever else it does correctly."
+}

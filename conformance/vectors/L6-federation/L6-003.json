@@ -1,0 +1,113 @@
+{
+  "id": "L6-003",
+  "level": "L6-federation",
+  "requirement": "spec/datum-v0.2.md#83-federation-is-authority-scoped-imports--and-it-is-the-licensing-product",
+  "normative": "MUST",
+  "description": "a licensee may not supersede imported canon on the rights holder's main",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_imp",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "rightsholder:series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_up01"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_up01",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Upstream canon",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_up01",
+        "kind": "main"
+      },
+      {
+        "name": "draft/licensee-scope",
+        "head": "cm_up01",
+        "kind": "draft"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ],
+    "imports": [
+      {
+        "namespace": "rightsholder",
+        "rights": {
+          "read": true,
+          "propose": true,
+          "supersede_main": false,
+          "supersede_scoped": true
+        }
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.commit",
+    "principal": "user:licensee",
+    "args": {
+      "into": "main",
+      "authority": "binding",
+      "message": "Rin's eyes are blue in our continuity",
+      "supersedes": [
+        "cl_imp"
+      ],
+      "changes": [
+        {
+          "op": "supersede",
+          "target": "cl_imp",
+          "note": "Spinoff continuity"
+        }
+      ]
+    }
+  },
+  "expect": [
+    {
+      "path": "$.status",
+      "op": "eq",
+      "value": "forbidden"
+    },
+    {
+      "path": "$.claims[?id=cl_imp].status",
+      "op": "eq",
+      "value": "canon"
+    }
+  ],
+  "rationale": "Supersession rights are separable from read rights, and that separation is the commercial surface. Rights holders and licensees maintaining a shared canon with asymmetric supersession rights under audit is the workflow currently executed by PDF style guides and approval emails."
+}

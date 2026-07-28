@@ -1,0 +1,126 @@
+{
+  "id": "L1-002",
+  "level": "L1-read",
+  "requirement": "spec/datum-v0.2.md#41-datumread",
+  "normative": "MUST",
+  "description": "as_of returns the canon state at a prior commit, not at HEAD",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": "ev_ritual"
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "superseded",
+        "superseded_by": "cl_9c01",
+        "supersession_reason": "Ratified change in Ep. 7"
+      },
+      {
+        "id": "cl_9c01",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "amber",
+        "effective": {
+          "from": "ev_ritual",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0045"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      },
+      {
+        "id": "cm_0045",
+        "parents": [
+          "cm_0044"
+        ],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Ritual changes Rin's eyes",
+        "changes": [
+          {
+            "op": "supersede",
+            "target": "cl_9b21"
+          },
+          {
+            "op": "assert",
+            "claim": "cl_9c01"
+          }
+        ],
+        "supersedes": [
+          "cl_9b21"
+        ]
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0045",
+        "kind": "main"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.read",
+    "principal": "user:lenox",
+    "args": {
+      "node_ids": [
+        "nd_7f3a2c"
+      ],
+      "branch": "main",
+      "as_of": "cm_0044"
+    }
+  },
+  "expect": [
+    {
+      "path": "$.claims",
+      "op": "length",
+      "value": 1
+    },
+    {
+      "path": "$.claims[?id=cl_9b21].value",
+      "op": "eq",
+      "value": "green"
+    },
+    {
+      "path": "$.claims[?id=cl_9c01]",
+      "op": "absent",
+      "note": "A claim asserted after the as_of point must not appear."
+    }
+  ],
+  "rationale": "Time travel is free because canon is a DAG. An implementation that stores only current state passes every other L1 vector and fails this one."
+}

@@ -1,0 +1,107 @@
+{
+  "id": "L3-004",
+  "level": "L3-supersession",
+  "requirement": "spec/datum-v0.2.md#3-supersession--the-primitive-nobody-has",
+  "normative": "MUST",
+  "description": "supersession records superseded_by and a reason, and never deletes",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.commit",
+    "principal": "user:lenox",
+    "args": {
+      "into": "main",
+      "authority": "binding",
+      "message": "Ritual changes Rin's eyes",
+      "supersedes": [
+        "cl_9b21"
+      ],
+      "changes": [
+        {
+          "op": "supersede",
+          "target": "cl_9b21",
+          "note": "Ratified change in Ep. 7"
+        },
+        {
+          "op": "assert",
+          "claim": "cl_9c01",
+          "predicate": "eye_color",
+          "value": "amber",
+          "node": "nd_7f3a2c"
+        }
+      ]
+    }
+  },
+  "expect": [
+    {
+      "path": "$.claims[?id=cl_9b21].status",
+      "op": "eq",
+      "value": "superseded"
+    },
+    {
+      "path": "$.claims[?id=cl_9b21].superseded_by",
+      "op": "exists"
+    },
+    {
+      "path": "$.claims[?id=cl_9b21].supersession_reason",
+      "op": "exists",
+      "note": "Threat model T6: a supersession without a recorded reason is indistinguishable from a quiet deletion."
+    }
+  ]
+}

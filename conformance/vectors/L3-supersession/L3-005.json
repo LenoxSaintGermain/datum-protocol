@@ -1,0 +1,107 @@
+{
+  "id": "L3-005",
+  "level": "L3-supersession",
+  "requirement": "spec/datum-v0.2.md#3-supersession--the-primitive-nobody-has",
+  "normative": "MUST",
+  "description": "the same value change WITHOUT a supersession is a conflict",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.check",
+    "principal": "agent:showrunner",
+    "args": {
+      "claims": [
+        {
+          "id": "cl_9c01",
+          "node": "nd_7f3a2c",
+          "predicate": "eye_color",
+          "value": "amber",
+          "effective": {
+            "from": "ev_birth",
+            "to": null
+          },
+          "authority": "binding",
+          "provenance": {
+            "source": "series-bible-v3",
+            "asserted_by": "user:lenox",
+            "commit": "cm_0044"
+          },
+          "status": "proposed"
+        }
+      ],
+      "branch": "main",
+      "scope": [
+        "nd_7f3a2c"
+      ]
+    }
+  },
+  "expect": [
+    {
+      "path": "$.status",
+      "op": "eq",
+      "value": "conflict"
+    },
+    {
+      "path": "$.violations",
+      "op": "length",
+      "value": 1
+    }
+  ],
+  "rationale": "The other half. L3-001 and L3-005 assert the same change to the same claim and demand opposite verdicts. A system that flags both identically buries every ratified canon change in false alarms; a system that flags neither has stopped detecting drift. This pair is the benchmark's Supersession Discrimination Rate, expressed as a conformance requirement."
+}

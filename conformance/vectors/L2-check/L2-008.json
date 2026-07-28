@@ -1,0 +1,126 @@
+{
+  "id": "L2-008",
+  "level": "L2-check",
+  "requirement": "spec/datum-v0.2.md#2-constraints",
+  "normative": "MUST",
+  "description": "a derived claim whose inputs changed and was not recomputed is stale, and advisory",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_age",
+        "node": "nd_7f3a2c",
+        "predicate": "birth_year",
+        "value": "1204",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      },
+      {
+        "id": "cl_der",
+        "node": "nd_7f3a2c",
+        "predicate": "age_at_fall",
+        "value": "27",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "derived",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "derivation",
+        "severity": "advisory"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.check",
+    "principal": "agent:showrunner",
+    "args": {
+      "claims": [
+        {
+          "id": "cl_cand",
+          "node": "nd_7f3a2c",
+          "predicate": "birth_year",
+          "value": "1198",
+          "effective": {
+            "from": "ev_birth",
+            "to": null
+          },
+          "authority": "proposed",
+          "provenance": {
+            "source": "series-bible-v3",
+            "asserted_by": "user:lenox",
+            "commit": "cm_0044"
+          },
+          "status": "proposed"
+        }
+      ],
+      "branch": "main",
+      "scope": [
+        "nd_7f3a2c"
+      ]
+    }
+  },
+  "expect": [
+    {
+      "path": "$.status",
+      "op": "eq",
+      "value": "stale"
+    },
+    {
+      "path": "$.violations[0].constraint",
+      "op": "eq",
+      "value": "derivation"
+    },
+    {
+      "path": "$.violations[0].severity",
+      "op": "eq",
+      "value": "advisory"
+    }
+  ]
+}

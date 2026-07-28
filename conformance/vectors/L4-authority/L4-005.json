@@ -1,0 +1,105 @@
+{
+  "id": "L4-005",
+  "level": "L4-authority",
+  "requirement": "spec/datum-v0.2.md#12-claim",
+  "normative": "MUST",
+  "description": "a binding claim is not contradicted by a proposed claim of different value",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      },
+      {
+        "id": "cl_prop",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "blue",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "proposed",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "proposed"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.read",
+    "principal": "agent:showrunner",
+    "args": {
+      "node_ids": [
+        "nd_7f3a2c"
+      ],
+      "branch": "main",
+      "authority_floor": "derived"
+    }
+  },
+  "expect": [
+    {
+      "path": "$.claims",
+      "op": "length",
+      "value": 1
+    },
+    {
+      "path": "$.claims[?id=cl_9b21].contested",
+      "op": "absent"
+    }
+  ],
+  "rationale": "Authority is what makes this a canon layer rather than a knowledge graph."
+}

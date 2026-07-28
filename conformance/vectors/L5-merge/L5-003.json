@@ -1,0 +1,135 @@
+{
+  "id": "L5-003",
+  "level": "L5-merge",
+  "requirement": "spec/datum-v0.2.md#5-merge-semantics",
+  "normative": "MUST",
+  "description": "the same claim with different values at equal authority is a conflict requiring explicit resolution",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_a",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_main"
+        },
+        "status": "canon"
+      },
+      {
+        "id": "cl_a2",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "blue",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_prop"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_base",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "base",
+        "changes": [],
+        "supersedes": []
+      },
+      {
+        "id": "cm_main",
+        "parents": [
+          "cm_base"
+        ],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "main advance",
+        "changes": [],
+        "supersedes": []
+      },
+      {
+        "id": "cm_prop",
+        "parents": [
+          "cm_base"
+        ],
+        "author": "user:lenox",
+        "authority": "proposed",
+        "message": "proposal advance",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_main",
+        "kind": "main"
+      },
+      {
+        "name": "proposal/rin",
+        "head": "cm_prop",
+        "kind": "proposal"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.merge",
+    "principal": "user:lenox",
+    "args": {
+      "from": "proposal/rin",
+      "into": "main",
+      "base": "cm_base"
+    }
+  },
+  "expect": [
+    {
+      "path": "$.status",
+      "op": "eq",
+      "value": "conflict"
+    },
+    {
+      "path": "$.conflicts",
+      "op": "length",
+      "value": 1
+    },
+    {
+      "path": "$.conflicts[0].requires_resolution",
+      "op": "eq",
+      "value": true
+    }
+  ]
+}

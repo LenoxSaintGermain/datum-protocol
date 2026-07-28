@@ -1,0 +1,117 @@
+{
+  "id": "L2-002",
+  "level": "L2-check",
+  "requirement": "spec/datum-v0.2.md#42-datumcheck",
+  "normative": "MUST",
+  "description": "every violation carries a full citation: claim, commit, and source",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ],
+    "constraints": [
+      {
+        "type": "character",
+        "kind": "cardinality",
+        "predicate": "eye_color",
+        "max": 1,
+        "severity": "blocking"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.check",
+    "principal": "agent:showrunner",
+    "args": {
+      "claims": [
+        {
+          "id": "cl_cand",
+          "node": "nd_7f3a2c",
+          "predicate": "eye_color",
+          "value": "blue",
+          "effective": {
+            "from": "ev_birth",
+            "to": null
+          },
+          "authority": "proposed",
+          "provenance": {
+            "source": "series-bible-v3",
+            "asserted_by": "user:lenox",
+            "commit": "cm_0044"
+          },
+          "status": "proposed"
+        }
+      ],
+      "branch": "main",
+      "scope": [
+        "nd_7f3a2c"
+      ]
+    }
+  },
+  "expect": [
+    {
+      "path": "$.violations[*].conflicts_with",
+      "op": "each_has",
+      "value": "claim"
+    },
+    {
+      "path": "$.violations[*].conflicts_with",
+      "op": "each_has",
+      "value": "commit"
+    },
+    {
+      "path": "$.violations[*].conflicts_with",
+      "op": "each_has",
+      "value": "source"
+    },
+    {
+      "path": "$.violations[*].conflicts_with",
+      "op": "each_has",
+      "value": "authority"
+    }
+  ],
+  "rationale": "Every violation, not most. A verdict without receipts is an opinion, and a system that cites some of the time is one a reviewer stops trusting all of the time."
+}

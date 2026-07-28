@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/LenoxSaintGermain/datum-protocol/conformance/schema/vector.schema.json",
+  "title": "Datum conformance vector",
+  "description": "One declarative test: a fixture, an operation, and a set of assertions. Deliberately language-agnostic and executable against any implementation through an adapter.",
+  "type": "object",
+  "required": ["id", "level", "requirement", "normative", "description", "fixture", "operation", "expect"],
+  "additionalProperties": false,
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^L[1-6]-[0-9]{3}$"
+    },
+    "level": {
+      "enum": ["L1-read", "L2-check", "L3-supersession", "L4-authority", "L5-merge", "L6-federation"]
+    },
+    "requirement": {
+      "type": "string",
+      "description": "Anchor into the specification that this vector tests. Every vector must trace to a normative statement; a test with no requirement is an opinion about implementation."
+    },
+    "normative": {
+      "enum": ["MUST", "SHOULD"],
+      "description": "MUST failures block the level. SHOULD failures are reported and do not block."
+    },
+    "description": {
+      "type": "string"
+    },
+    "fixture": {
+      "type": "object",
+      "description": "Initial canon state. The adapter loads this before the operation runs.",
+      "required": ["nodes", "claims", "commits", "branches"],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": { "type": "array" },
+        "claims": { "type": "array" },
+        "edges": { "type": "array" },
+        "commits": { "type": "array" },
+        "branches": { "type": "array" },
+        "constraints": {
+          "type": "array",
+          "description": "Declared per node type, per spec section 2.",
+          "items": {
+            "type": "object",
+            "required": ["type", "kind"],
+            "properties": {
+              "type": { "type": "string" },
+              "kind": { "enum": ["cardinality", "domain", "temporal", "exclusion", "referential", "derivation", "authority"] },
+              "predicate": { "type": "string" },
+              "max": { "type": "integer" },
+              "values": { "type": "array" },
+              "claims": { "type": "array" },
+              "rule": { "type": "string" },
+              "severity": { "enum": ["blocking", "advisory"] }
+            }
+          }
+        },
+        "imports": {
+          "type": "array",
+          "description": "Federation only. Authority mapping for imported namespaces, per section 8.3.",
+          "items": {
+            "type": "object",
+            "required": ["namespace", "rights"],
+            "properties": {
+              "namespace": { "type": "string" },
+              "rights": {
+                "type": "object",
+                "properties": {
+                  "read": { "type": "boolean" },
+                  "propose": { "type": "boolean" },
+                  "supersede_main": { "type": "boolean" },
+                  "supersede_scoped": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "operation": {
+      "type": "object",
+      "required": ["tool", "args"],
+      "additionalProperties": false,
+      "properties": {
+        "tool": { "enum": ["datum.read", "datum.check", "datum.propose", "datum.commit", "datum.merge"] },
+        "principal": {
+          "type": "string",
+          "description": "Who is calling. Prefix 'agent:' or 'user:'. Load-bearing for L4 — agents may call read, check, and propose, and may not call commit."
+        },
+        "args": { "type": "object" }
+      }
+    },
+    "expect": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "op"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Dotted path into the response, with [n] for array index, [*] for any element, and [?key=value] to select array members by field. Root is '$'."
+          },
+          "op": {
+            "enum": ["eq", "neq", "length", "contains", "exists", "absent", "gte", "lte", "subset_of", "each_has"],
+            "description": "each_has asserts every member of the selected array has the named field — used for the citation requirement, where 'most violations carry a citation' is not the guarantee."
+          },
+          "value": {},
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "rationale": {
+      "type": "string",
+      "description": "Why this vector exists. Present on vectors whose failure mode is subtle."
+    }
+  }
+}

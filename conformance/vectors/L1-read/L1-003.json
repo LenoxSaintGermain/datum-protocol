@@ -1,0 +1,117 @@
+{
+  "id": "L1-003",
+  "level": "L1-read",
+  "requirement": "spec/datum-v0.2.md#41-datumread",
+  "normative": "MUST",
+  "description": "authority_floor suppresses claims below the requested tier",
+  "fixture": {
+    "nodes": [
+      {
+        "id": "nd_7f3a2c",
+        "type": "character",
+        "label": "Rin",
+        "branch": "main",
+        "created_in": "cm_0044",
+        "status": "canon"
+      }
+    ],
+    "claims": [
+      {
+        "id": "cl_9b21",
+        "node": "nd_7f3a2c",
+        "predicate": "eye_color",
+        "value": "green",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "binding",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "canon"
+      },
+      {
+        "id": "cl_9b22",
+        "node": "nd_7f3a2c",
+        "predicate": "rank",
+        "value": "Warden",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "proposed",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "proposed"
+      },
+      {
+        "id": "cl_9b23",
+        "node": "nd_7f3a2c",
+        "predicate": "nickname",
+        "value": "Ash",
+        "effective": {
+          "from": "ev_birth",
+          "to": null
+        },
+        "authority": "apocryphal",
+        "provenance": {
+          "source": "series-bible-v3",
+          "asserted_by": "user:lenox",
+          "commit": "cm_0044"
+        },
+        "status": "apocryphal"
+      }
+    ],
+    "commits": [
+      {
+        "id": "cm_0044",
+        "parents": [],
+        "author": "user:lenox",
+        "authority": "binding",
+        "message": "Establish Rin",
+        "changes": [],
+        "supersedes": []
+      }
+    ],
+    "branches": [
+      {
+        "name": "main",
+        "head": "cm_0044",
+        "kind": "main"
+      }
+    ]
+  },
+  "operation": {
+    "tool": "datum.read",
+    "principal": "agent:showrunner",
+    "args": {
+      "node_ids": [
+        "nd_7f3a2c"
+      ],
+      "branch": "main",
+      "authority_floor": "derived"
+    }
+  },
+  "expect": [
+    {
+      "path": "$.claims",
+      "op": "length",
+      "value": 1
+    },
+    {
+      "path": "$.claims[?id=cl_9b22]",
+      "op": "absent"
+    },
+    {
+      "path": "$.claims[?id=cl_9b23]",
+      "op": "absent",
+      "note": "Generation contexts set derived. A proposed claim reaching a generation context is extraction creating canon by the back door."
+    }
+  ]
+}
