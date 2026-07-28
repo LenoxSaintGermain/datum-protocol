@@ -261,7 +261,7 @@
     "value": "open",
     "effective": {
       "from": "v0.1",
-      "to": null
+      "to": "v0.2"
     },
     "authority": "binding",
     "provenance": {
@@ -269,7 +269,9 @@
       "asserted_by": "user:lenox",
       "commit": "cm_0001"
     },
-    "status": "canon"
+    "status": "superseded",
+    "superseded_by": "cl_0032",
+    "supersession_reason": "Ratified in v0.2 section 8.3. Federation is the commercial surface, not a technical detail."
   },
   {
     "id": "cl_0040",
@@ -506,6 +508,40 @@
       "source": "datum-spec-v0.2",
       "asserted_by": "user:lenox",
       "commit": "cm_0003"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0032",
+    "node": "nd_pos_federation",
+    "predicate": "status",
+    "value": "resolved",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0004"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0033",
+    "node": "nd_pos_federation",
+    "predicate": "resolution",
+    "value": "Federation is authority-scoped imports, and it is the licensing product. Submodules copy; imports reference; Datum uses imports. The critical primitive is that supersession rights are separable from read rights: a licensee may read and propose against imported canon, but may not supersede on the rights holder's main. Conflicts crossing an import boundary are advisory by default, cannot auto-resolve, and escalate to the rights holder. This is not a technical footnote \u2014 it is the exact workflow currently executed by PDF style guides and approval emails.",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0004"
     },
     "status": "canon"
   }

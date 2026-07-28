@@ -226,5 +226,32 @@
     "supersedes": [
       "cl_0021"
     ]
+  },
+  {
+    "id": "cm_0004",
+    "parents": [
+      "cm_0003"
+    ],
+    "author": "user:lenox",
+    "authority": "binding",
+    "message": "Ratify section 8.3: federation is authority-scoped imports",
+    "changes": [
+      {
+        "op": "supersede",
+        "target": "cl_0031",
+        "note": "Ratified in v0.2 section 8.3. Federation is the commercial surface, not a technical detail."
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0032"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0033"
+      }
+    ],
+    "supersedes": [
+      "cl_0031"
+    ]
   }
 ]
