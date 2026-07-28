@@ -22,7 +22,11 @@ jobs:
     name: canon and vectors are structurally sound
     runs-on: ubuntu-latest
     steps:
+      # Full history: the Datum-Commit trailer cross-check reads every commit
+      # message, and a shallow clone silently reports zero trailers.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

@@ -205,6 +205,15 @@ def validate_git_trailers():
         print(f"  (skipping git cross-check: {e})")
         return 0
 
+    # A shallow clone shows one commit and therefore no trailers, which would
+    # otherwise be reported as "canon commits have no trailer" — the right
+    # failure for the wrong reason, and the kind of confident wrong diagnosis
+    # this suite exists to avoid.
+    if os.path.exists(os.path.join(REPO, ".git", "shallow")):
+        err("git", "this is a shallow clone, so commit history cannot be cross-checked. "
+                   "Fetch full history (actions/checkout with fetch-depth: 0).")
+        return 0
+
     commits = load(os.path.join(CANON, "commits.json"))
     known = {c["id"] for c in commits}
     trailers = re.findall(r"^Datum-Commit:\s*(\S+)", log, re.M)
