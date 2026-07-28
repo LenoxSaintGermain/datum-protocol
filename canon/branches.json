@@ -4,5 +4,11 @@
     "head": "cm_0006",
     "kind": "main",
     "description": "Ratified canon of the Datum specification."
+  },
+  {
+    "name": "apocrypha/rejected-alternates",
+    "head": "cm_0007",
+    "kind": "apocrypha",
+    "description": "Designs considered and rejected. Apocryphal authority: exists, does not bind, never conflicts with main."
   }
 ]

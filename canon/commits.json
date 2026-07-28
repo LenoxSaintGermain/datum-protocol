@@ -317,5 +317,77 @@
       "cl_0051",
       "cl_0001"
     ]
+  },
+  {
+    "id": "cm_0007",
+    "parents": [
+      "cm_0006"
+    ],
+    "author": "user:lenox",
+    "authority": "apocryphal",
+    "message": "Apocrypha: designs considered and rejected on the way to v0.2. Non-binding by construction \u2014 these never conflict with main.",
+    "changes": [
+      {
+        "op": "add_node",
+        "node": "nd_alt_extraction_native"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0200"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0300"
+      },
+      {
+        "op": "add_node",
+        "node": "nd_alt_submodule_federation"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0201"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0301"
+      },
+      {
+        "op": "add_node",
+        "node": "nd_alt_hard_delete"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0202"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0302"
+      },
+      {
+        "op": "add_node",
+        "node": "nd_alt_strict_default"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0203"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0303"
+      },
+      {
+        "op": "add_node",
+        "node": "nd_alt_full_graph_eval"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0204"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0304"
+      }
+    ],
+    "supersedes": []
   }
 ]

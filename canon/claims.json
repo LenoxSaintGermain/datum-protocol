@@ -635,5 +635,175 @@
       "commit": "cm_0006"
     },
     "status": "canon"
+  },
+  {
+    "id": "cl_0200",
+    "node": "nd_alt_extraction_native",
+    "predicate": "proposal",
+    "value": "Define claim extraction inside the specification, with normative prompt and schema.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0300",
+    "node": "nd_alt_extraction_native",
+    "predicate": "rejection_reason",
+    "value": "Rejected: bounds the spec's quality by model quality, which changes quarterly. Superseded on main by section 8.1 \u2014 extraction is a versioned adapter with its own model card.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0201",
+    "node": "nd_alt_submodule_federation",
+    "predicate": "proposal",
+    "value": "Import foreign canon by copying it into the importing universe, git-submodule style.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0301",
+    "node": "nd_alt_submodule_federation",
+    "predicate": "rejection_reason",
+    "value": "Rejected: copies fork silently and cannot express asymmetric rights. Superseded on main by section 8.3 \u2014 imports reference, and supersession rights are separable from read rights.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0202",
+    "node": "nd_alt_hard_delete",
+    "predicate": "proposal",
+    "value": "Treat removal of a claim as a normal operation, symmetrical with assertion.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0302",
+    "node": "nd_alt_hard_delete",
+    "predicate": "rejection_reason",
+    "value": "Rejected: deletion makes an intentional canon change indistinguishable from an error, which is the exact distinction the protocol exists to draw. Hard delete survives on main only for legal removal, as a tombstone commit.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0203",
+    "node": "nd_alt_strict_default",
+    "predicate": "proposal",
+    "value": "Omit contested claims from read by default, so that generation never sees disputed canon.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0303",
+    "node": "nd_alt_strict_default",
+    "predicate": "rejection_reason",
+    "value": "Rejected: silently omitting canon is worse than returning disputed canon, and hard-failing generation over an unresolved dispute turns the tool into an obstacle. Superseded on main by section 8.5 \u2014 permissive default with a mandatory contested flag.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0204",
+    "node": "nd_alt_full_graph_eval",
+    "predicate": "proposal",
+    "value": "Evaluate every declared constraint over the whole canon graph on each commit.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
+  },
+  {
+    "id": "cl_0304",
+    "node": "nd_alt_full_graph_eval",
+    "predicate": "rejection_reason",
+    "value": "Rejected: unnecessary. Canon graphs are small and the problem is write latency, not scale. Superseded on main by section 8.2 \u2014 dirty-set scoping with cached verdicts.",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
+    "authority": "apocryphal",
+    "provenance": {
+      "source": "design-notes",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0007"
+    },
+    "status": "apocryphal"
   }
 ]

@@ -7,7 +7,6 @@
     "created_in": "cm_0001",
     "status": "canon"
   },
-
   {
     "id": "nd_prim_supersession",
     "type": "primitive",
@@ -32,7 +31,6 @@
     "created_in": "cm_0001",
     "status": "canon"
   },
-
   {
     "id": "nd_tool_read",
     "type": "tool",
@@ -65,7 +63,6 @@
     "created_in": "cm_0001",
     "status": "canon"
   },
-
   {
     "id": "nd_pos_extraction",
     "type": "position",
@@ -106,7 +103,6 @@
     "created_in": "cm_0001",
     "status": "canon"
   },
-
   {
     "id": "nd_pos_temporal_recall",
     "type": "position",
@@ -130,5 +126,45 @@
     "branch": "main",
     "created_in": "cm_0001",
     "status": "canon"
+  },
+  {
+    "id": "nd_alt_extraction_native",
+    "type": "position",
+    "label": "Extraction as a protocol primitive",
+    "branch": "apocrypha/rejected-alternates",
+    "created_in": "cm_0007",
+    "status": "apocryphal"
+  },
+  {
+    "id": "nd_alt_submodule_federation",
+    "type": "position",
+    "label": "Federation by submodule copy",
+    "branch": "apocrypha/rejected-alternates",
+    "created_in": "cm_0007",
+    "status": "apocryphal"
+  },
+  {
+    "id": "nd_alt_hard_delete",
+    "type": "position",
+    "label": "Hard delete as the ordinary path",
+    "branch": "apocrypha/rejected-alternates",
+    "created_in": "cm_0007",
+    "status": "apocryphal"
+  },
+  {
+    "id": "nd_alt_strict_default",
+    "type": "position",
+    "label": "Strict reader mode as the default",
+    "branch": "apocrypha/rejected-alternates",
+    "created_in": "cm_0007",
+    "status": "apocryphal"
+  },
+  {
+    "id": "nd_alt_full_graph_eval",
+    "type": "position",
+    "label": "Full-graph constraint evaluation on write",
+    "branch": "apocrypha/rejected-alternates",
+    "created_in": "cm_0007",
+    "status": "apocryphal"
   }
 ]
