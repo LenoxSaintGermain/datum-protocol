@@ -1,0 +1,23 @@
+{
+  "id": "gg_005",
+  "subject": "Moriarty",
+  "predicate": "given_name",
+  "assertions": [
+    {
+      "value": "James (the Colonel)",
+      "source": "FINA",
+      "locator": {
+        "char_span": [
+          912,
+          1002
+        ],
+        "excerpt": "the recent letters in which Colonel James Moriarty defends the memory of his brother"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    }
+  ],
+  "note": "INCOMPLETE — do not annotate until the second assertion is located. The Great Game problem is that the Professor also appears to be named James, which would give two brothers one name. That second attribution was searched for and NOT found in the pinned editions (FINA, EMPT, VALL). Either it lives in a story not yet searched, or it is a scholarly inference rather than a textual assertion — and those are very different instances. Resolve which before labelling.",
+  "incomplete": true
+}

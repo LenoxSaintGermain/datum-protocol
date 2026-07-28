@@ -1,0 +1,36 @@
+{
+  "id": "gg_001",
+  "subject": "Watson",
+  "predicate": "wound_location",
+  "assertions": [
+    {
+      "value": "shoulder",
+      "source": "STUD",
+      "locator": {
+        "char_span": [
+          1843,
+          1943
+        ],
+        "excerpt": "struck on the shoulder by a Jezail bullet, which shattered the bone and grazed the subclavian artery"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    },
+    {
+      "value": "leg",
+      "source": "SIGN",
+      "locator": {
+        "char_span": [
+          5843,
+          5920
+        ],
+        "excerpt": "sat nursing my wounded leg. I had a Jezail bullet through it some time before"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    }
+  ],
+  "note": "The founding example. Same Jezail bullet, same campaign, two body parts. Section 1 of the benchmark spec uses this as the reference 'error' case, but the annotation still runs the decision tree — record what the text says, not what the spec expects."
+}

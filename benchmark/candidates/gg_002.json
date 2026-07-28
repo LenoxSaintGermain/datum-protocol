@@ -1,0 +1,36 @@
+{
+  "id": "gg_002",
+  "subject": "Watson",
+  "predicate": "given_name",
+  "assertions": [
+    {
+      "value": "John H.",
+      "source": "STUD",
+      "locator": {
+        "char_span": [
+          784,
+          804
+        ],
+        "excerpt": "JOHN H. WATSON, M.D."
+      },
+      "authority": "binding",
+      "narrator_belief": false,
+      "explicit": true
+    },
+    {
+      "value": "James",
+      "source": "TWIS",
+      "locator": {
+        "char_span": [
+          1988,
+          2035
+        ],
+        "excerpt": "should you rather that I sent James off to bed?"
+      },
+      "authority": "binding",
+      "narrator_belief": false,
+      "explicit": true
+    }
+  ],
+  "note": "Watson signs himself John H. Watson; in TWIS his wife addresses him as James. Step 2 of the decision tree is the live question — is the TWIS speaker referring to the same referent, and at what authority does a line of dialogue assert a fact? A well-known reconciliation exists; log it under scholarly_treatments with a real citation, and do not let it set the verdict."
+}

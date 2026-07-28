@@ -1,0 +1,36 @@
+{
+  "id": "gg_006",
+  "subject": "Watson",
+  "predicate": "marital_status",
+  "assertions": [
+    {
+      "value": "betrothed to Mary Morstan",
+      "source": "SIGN",
+      "locator": {
+        "char_span": [
+          178984,
+          179055
+        ],
+        "excerpt": "“Then I say, ‘Thank God,’ too,” she whispered, as I drew her to my side"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": false
+    },
+    {
+      "value": "married",
+      "source": "FINA",
+      "locator": {
+        "char_span": [
+          1802,
+          1896
+        ],
+        "excerpt": "It may be remembered that after my marriage, and my subsequent start in private practice"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    }
+  ],
+  "note": "The starting point for the marriages problem, which is a temporal instance rather than a simple one: the difficulty is the dating of marriages across stories, not a single contradictory pair. Expect temporal_inference and cross_story hazards. Expand this into several instances rather than forcing it into one."
+}

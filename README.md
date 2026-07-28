@@ -54,7 +54,7 @@ CI enforces the rule that makes this real: **no pull request may change `spec/` 
 | [spec/datum-v0.2.md](spec/datum-v0.2.md) | The protocol. Data model, constraints, supersession, four MCP-native tools, merge semantics, canon drift score, domain bindings. |
 | [spec/threat-model.md](spec/threat-model.md) | Ten threats, six adversaries, five trust boundaries. Three open against v0.2 and named as open. |
 | [spec/CHANGELOG.md](spec/CHANGELOG.md) | v0.1 → v0.2 written as supersessions, not as a diff. |
-| [benchmark/](benchmark/) | GREATGAME — a canon-consistency benchmark over the Doyle Holmes corpus. CC-BY-4.0. |
+| [benchmark/](benchmark/) | GREATGAME — a canon-consistency benchmark over the Doyle Holmes corpus, plus the pinned corpus builder and annotation harness. CC-BY-4.0. |
 | [conformance/](conformance/) | 39 vectors across six levels, a runner, and an adapter interface. |
 | [canon/](canon/) | This specification, as canon. |
 
@@ -81,6 +81,9 @@ Pre-release, and quiet on purpose. **No results exist yet, and this README will 
 | Conformance suite | ✅ 39 vectors, runner, mock adapter |
 | Self-hosted canon | ✅ 7 commits, 5 supersessions |
 | GREATGAME specification v0.1 | ✅ published |
+| Corpus pinned and checksummed | ✅ 60 works, 3.72M chars, reproducible |
+| Annotation harness | ✅ two-pass, blind, κ per class |
+| Candidate instances | 🟡 6 located, 5 ready to annotate |
 | Annotated benchmark instances | ⬜ 0 / 50 |
 | Extraction harness and baselines | ⬜ not started |
 | Reference implementation | ⬜ not started |

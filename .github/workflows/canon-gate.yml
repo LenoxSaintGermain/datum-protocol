@@ -86,6 +86,24 @@ jobs:
           echo
           echo "OK: spec files changed: $SPEC, canon files changed: $CANON"
 
+  corpus:
+    name: pinned corpus rebuilds and annotations resolve
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # Reconstructs 60 works from Project Gutenberg and asserts every checksum
+      # matches the pinned manifest. If an upstream edition is revised, every
+      # char_span in the dataset silently points at different words — this is
+      # the only thing standing between that and a published benchmark nobody
+      # can reproduce.
+      - name: Rebuild corpus and verify checksums
+        run: python3 benchmark/corpus/build.py --verify
+      - name: Validate candidate and instance spans against the manifest
+        run: python3 benchmark/annotate.py validate
+
   licenses:
     name: license split is intact
     runs-on: ubuntu-latest

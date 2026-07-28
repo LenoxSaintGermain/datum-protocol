@@ -63,6 +63,10 @@ Candidate instances are transcribed from a century of existing Sherlockian schol
 
 Two annotators per instance, independent and blind to each other, following the decision tree in benchmark spec §7. Disagreements are adjudicated in a third pass and **recorded rather than erased**.
 
+The workflow is enforced mechanically by [annotate.py](annotate.py), documented in [ANNOTATION.md](ANNOTATION.md). The tool will not show one annotator the other's label, will not let an annotator re-open an instance they have already labelled, and shows scholarly treatments only *after* requiring the decision tree to run. Blindness that depends on the annotators remembering to be blind is not blindness.
+
+**Candidate instances carry no labels.** A candidate is a located tension — subject, predicate, assertions, verified spans — with no `class`, `gold_verdict`, `difficulty`, or `hazards`. A pre-labelled candidate contaminates the annotation before it starts, and the κ it produces measures nothing.
+
 | Field | Value |
 |---|---|
 | Annotator A | pending |
@@ -82,13 +86,26 @@ No. A contradiction that scholars have explained away is still a contradiction i
 
 ## Preprocessing
 
-Project Gutenberg plain text, normalized for whitespace and encoding, then pinned and checksummed. Character offsets are authoritative and will silently rot against any other edition.
+Project Gutenberg plain text, normalized, then pinned and checksummed per work. Character offsets are authoritative and will silently rot against any other edition.
 
 | Field | Value |
 |---|---|
-| Editions pinned | pending |
-| Checksums recorded | pending |
-| Normalization script | pending |
+| Editions pinned | 9 Project Gutenberg ebooks — 244, 2097, 2852, 3289, 1661, 834, 108, 2350, 69700 |
+| Works | 60 — 4 novels, 56 stories |
+| Total characters | 3,715,178 |
+| Checksums recorded | SHA-256 per source (raw and normalized) and per work, in [corpus/manifest.json](corpus/manifest.json) |
+| Normalization script | [corpus/build.py](corpus/build.py) — `--verify` rebuilds and asserts every checksum |
+
+Normalization is deliberately minimal: Project Gutenberg header and footer removed, CRLF normalized to LF, outer whitespace stripped per work, and **nothing else**. Curly quotes, dashes, and italic markers are left exactly as Gutenberg has them. Every additional transformation is another chance for offsets to drift.
+
+Corpus text is **not redistributed**. `build.py` reconstructs it byte-for-byte and `--verify` proves the reconstruction is exact, which makes "pinned" a checkable claim rather than an assertion.
+
+**Two edition facts that would otherwise silently corrupt offsets:**
+
+- This *Memoirs* edition contains *The Cardboard Box* (`CARD`). Other editions place it in *His Last Bow*, which carries 7 stories here rather than 8. Placement is an edition property, not a canon fact.
+- The body heading for `LAST` reads *His Last Bow: The War Service of Sherlock Holmes*, not *His Last Bow*.
+
+The splitter refuses to guess: it fails on an unlocatable title or any work under 8,000 characters, on the reasoning that a corpus which splits wrong is worse than one that refuses to split — a bad split surfaces months later as an annotation citing the wrong sentence.
 
 ---
 

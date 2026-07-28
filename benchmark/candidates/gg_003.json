@@ -1,0 +1,36 @@
+{
+  "id": "gg_003",
+  "subject": "Holmes",
+  "predicate": "status",
+  "assertions": [
+    {
+      "value": "dead",
+      "source": "FINA",
+      "locator": {
+        "char_span": [
+          41665,
+          41835
+        ],
+        "excerpt": "deep down in that dreadful caldron of swirling water and seething foam, will lie for all time the most dangerous criminal and the foremost champion of the law"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    },
+    {
+      "value": "alive",
+      "source": "EMPT",
+      "locator": {
+        "char_span": [
+          14307,
+          14338
+        ],
+        "excerpt": "“No, Watson, I never was in it."
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    }
+  ],
+  "note": "The payoff case. The candidate explanatory passage is EMPT's baritsu account — Holmes explaining in-world how he survived. If step 3 finds that explanation, this is a supersession and not a conflict, and that single judgment is what the Supersession Discrimination Rate measures. Note the narrator_belief dimension: Watson believed Holmes dead when he wrote FINA, which is different from the text asserting it as fact."
+}

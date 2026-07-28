@@ -1,0 +1,36 @@
+{
+  "id": "gg_004",
+  "subject": "Holmes",
+  "predicate": "university",
+  "assertions": [
+    {
+      "value": "unnamed college, two years",
+      "source": "GLOR",
+      "locator": {
+        "char_span": [
+          1962,
+          2035
+        ],
+        "excerpt": "He was the only friend I made during the two years I was at college"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    },
+    {
+      "value": "unnamed college",
+      "source": "MUSG",
+      "locator": {
+        "char_span": [
+          7450,
+          7506
+        ],
+        "excerpt": "Reginald Musgrave had been in the same college as myself"
+      },
+      "authority": "binding",
+      "narrator_belief": true,
+      "explicit": true
+    }
+  ],
+  "note": "Neither passage names the university, and the two say nothing incompatible. A strong candidate for the uncovered class — canon takes no position — which makes it a useful control against a system that flags anything it finds interesting. Competing chronologies argue Oxford versus Cambridge; that argument is scholarship about a gap, not a claim in the text."
+}
