@@ -3,9 +3,9 @@ title: "Datum: A Versioned Canon Layer for Multi-Agent Systems"
 message: "If you use this specification, benchmark, or conformance suite, please cite it."
 type: software
 authors:
-  # TODO: replace with the author's full name before the arXiv submission —
-  # a citation block is how this gets attributed for the next decade.
-  - name: "Third Signal Labs"
+  - family-names: "Clairmont"
+    given-names: "Lenox"
+    affiliation: "Third Signal Labs"
     website: "https://github.com/LenoxSaintGermain"
 repository-code: "https://github.com/LenoxSaintGermain/datum-protocol"
 license: Apache-2.0
@@ -37,7 +37,9 @@ references:
     version: "0.1"
     license: CC-BY-4.0
     authors:
-      - name: "Third Signal Labs"
+      - family-names: "Clairmont"
+        given-names: "Lenox"
+        affiliation: "Third Signal Labs"
     notes: >-
       Benchmark specification. Annotated instances are not yet released; see
       benchmark/datasheet.md for current state and stated limitations.
