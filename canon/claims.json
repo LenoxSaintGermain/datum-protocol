@@ -225,7 +225,7 @@
     "value": "open",
     "effective": {
       "from": "v0.1",
-      "to": null
+      "to": "v0.2"
     },
     "authority": "binding",
     "provenance": {
@@ -233,7 +233,9 @@
       "asserted_by": "user:lenox",
       "commit": "cm_0001"
     },
-    "status": "canon"
+    "status": "superseded",
+    "superseded_by": "cl_0022",
+    "supersession_reason": "Ratified in v0.2 section 8.2."
   },
   {
     "id": "cl_0030",
@@ -470,6 +472,40 @@
       "source": "datum-spec-v0.2",
       "asserted_by": "user:lenox",
       "commit": "cm_0002"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0022",
+    "node": "nd_pos_constraint_eval",
+    "predicate": "status",
+    "value": "resolved",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0003"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0023",
+    "node": "nd_pos_constraint_eval",
+    "predicate": "resolution",
+    "value": "Constraint evaluation is dirty-set scoped. Never evaluate the full graph on the write path. Index constraints by (subject_type, predicate); on commit, collect touched subjects and predicates from the delta; expand by declared constraint dependency; evaluate only that closure. Verdicts cache on (claim_set_hash, constraint_schema_version, branch_head). Full sweeps are explicit operations, never on the write path. Canon graphs are small \u2014 a large franchise is on the order of 10^5 claims. This is a write-latency problem, not a big-data problem.",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0003"
     },
     "status": "canon"
   }
