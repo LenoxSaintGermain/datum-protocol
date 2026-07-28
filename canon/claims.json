@@ -6,7 +6,7 @@
     "value": "0.1",
     "effective": {
       "from": "v0.1",
-      "to": null
+      "to": "v0.2"
     },
     "authority": "binding",
     "provenance": {
@@ -14,7 +14,9 @@
       "asserted_by": "user:lenox",
       "commit": "cm_0001"
     },
-    "status": "canon"
+    "status": "superseded",
+    "superseded_by": "cl_0003",
+    "supersession_reason": "All five section 8 positions ratified. Version supersedes 0.1."
   },
   {
     "id": "cl_0002",
@@ -333,7 +335,7 @@
     "value": "open",
     "effective": {
       "from": "v0.1",
-      "to": null
+      "to": "v0.2"
     },
     "authority": "binding",
     "provenance": {
@@ -341,7 +343,9 @@
       "asserted_by": "user:lenox",
       "commit": "cm_0001"
     },
-    "status": "canon"
+    "status": "superseded",
+    "superseded_by": "cl_0052",
+    "supersession_reason": "Ratified in v0.2 section 8.5. The mandatory flag is normative but unenforceable by the spec alone \u2014 conformance level L1 is what enforces it. See threat model T10."
   },
   {
     "id": "cl_0060",
@@ -578,6 +582,57 @@
       "source": "datum-spec-v0.2",
       "asserted_by": "user:lenox",
       "commit": "cm_0005"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0052",
+    "node": "nd_pos_reader_enforcement",
+    "predicate": "status",
+    "value": "resolved",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0006"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0053",
+    "node": "nd_pos_reader_enforcement",
+    "predicate": "resolution",
+    "value": "Reader-side enforcement is policy, with a mandatory flag. read never silently hides contested canon: any claim under an unresolved blocking conflict returns with contested: true and the conflicting claim attached. Three harness-selected modes \u2014 permissive (default, return contested claims flagged), strict (omit and report the omission), gate (error with the violation cited). Default is permissive because silently omitting canon is worse than returning disputed canon. The contested flag must appear in the payload the model actually sees.",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0006"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0003",
+    "node": "nd_spec",
+    "predicate": "version",
+    "value": "0.2",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0006"
     },
     "status": "canon"
   }

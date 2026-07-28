@@ -280,5 +280,42 @@
     "supersedes": [
       "cl_0041"
     ]
+  },
+  {
+    "id": "cm_0006",
+    "parents": [
+      "cm_0005"
+    ],
+    "author": "user:lenox",
+    "authority": "binding",
+    "message": "Ratify section 8.5: reader-side enforcement is policy with a mandatory contested flag",
+    "changes": [
+      {
+        "op": "supersede",
+        "target": "cl_0051",
+        "note": "Ratified in v0.2 section 8.5. The mandatory flag is normative but unenforceable by the spec alone \u2014 conformance level L1 is what enforces it. See threat model T10."
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0052"
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0053"
+      },
+      {
+        "op": "supersede",
+        "target": "cl_0001",
+        "note": "All five section 8 positions ratified. Version supersedes 0.1."
+      },
+      {
+        "op": "assert",
+        "claim": "cl_0003"
+      }
+    ],
+    "supersedes": [
+      "cl_0051",
+      "cl_0001"
+    ]
   }
 ]
