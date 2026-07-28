@@ -1,0 +1,10 @@
+[
+  { "id": "eg_001", "from": "nd_pos_extraction", "to": "nd_spec", "type": "position_in", "authority": "binding" },
+  { "id": "eg_002", "from": "nd_pos_constraint_eval", "to": "nd_prim_constraint", "type": "governs", "authority": "binding" },
+  { "id": "eg_003", "from": "nd_pos_federation", "to": "nd_prim_supersession", "type": "governs", "authority": "binding" },
+  { "id": "eg_004", "from": "nd_pos_proposal_load", "to": "nd_tool_propose", "type": "governs", "authority": "binding" },
+  { "id": "eg_005", "from": "nd_pos_reader_enforcement", "to": "nd_tool_read", "type": "governs", "authority": "binding" },
+  { "id": "eg_006", "from": "nd_pos_canon_poisoning", "to": "nd_tool_propose", "type": "governs", "authority": "binding" },
+  { "id": "eg_007", "from": "nd_tool_commit", "to": "nd_prim_authority", "type": "requires", "authority": "binding" },
+  { "id": "eg_008", "from": "nd_tool_check", "to": "nd_prim_constraint", "type": "requires", "authority": "binding" }
+]

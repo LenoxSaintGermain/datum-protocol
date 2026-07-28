@@ -1,0 +1,134 @@
+[
+  {
+    "id": "nd_spec",
+    "type": "section",
+    "label": "Datum Protocol Specification",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+
+  {
+    "id": "nd_prim_supersession",
+    "type": "primitive",
+    "label": "Supersession",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_prim_authority",
+    "type": "primitive",
+    "label": "Authority tiers",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_prim_constraint",
+    "type": "primitive",
+    "label": "Constraints",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+
+  {
+    "id": "nd_tool_read",
+    "type": "tool",
+    "label": "datum.read",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_tool_check",
+    "type": "tool",
+    "label": "datum.check",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_tool_propose",
+    "type": "tool",
+    "label": "datum.propose",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_tool_commit",
+    "type": "tool",
+    "label": "datum.commit",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+
+  {
+    "id": "nd_pos_extraction",
+    "type": "position",
+    "label": "Where does claim extraction live?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_pos_constraint_eval",
+    "type": "position",
+    "label": "How is constraint evaluation scoped?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_pos_federation",
+    "type": "position",
+    "label": "How do universes share canon?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_pos_proposal_load",
+    "type": "position",
+    "label": "How is proposal load managed?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_pos_reader_enforcement",
+    "type": "position",
+    "label": "How is contested canon returned to a reader?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+
+  {
+    "id": "nd_pos_temporal_recall",
+    "type": "position",
+    "label": "What is extraction recall on temporal inference hazards?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_pos_constraint_expressiveness",
+    "type": "position",
+    "label": "Can narrative rules be declaratively constrained?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  },
+  {
+    "id": "nd_pos_canon_poisoning",
+    "type": "position",
+    "label": "Is canon safe under adversarial proposal load?",
+    "branch": "main",
+    "created_in": "cm_0001",
+    "status": "canon"
+  }
+]

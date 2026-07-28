@@ -1,0 +1,166 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/LenoxSaintGermain/datum-protocol/canon/schema.json",
+  "title": "Datum canon store",
+  "description": "Schema for the four canon files. Formalizes spec sections 1.1 through 1.5. Each file is a JSON array whose members match the corresponding definition below.",
+
+  "definitions": {
+
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "label", "branch", "created_in", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^nd_[a-z0-9_]+$" },
+        "type": {
+          "type": "string",
+          "description": "Domain-defined; the engine treats it opaquely. The 'spec' binding used by this repository declares: section, position, primitive, tool, constraint_type, threat."
+        },
+        "label": { "type": "string" },
+        "branch": { "type": "string" },
+        "created_in": { "type": "string", "pattern": "^cm_[0-9]{4}$" },
+        "status": { "enum": ["canon", "superseded", "apocryphal", "proposed"] }
+      }
+    },
+
+    "claim": {
+      "type": "object",
+      "description": "The atomic unit of truth. Nodes are containers; claims are what conflict.",
+      "required": ["id", "node", "predicate", "value", "effective", "authority", "provenance", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^cl_[0-9]{4}$" },
+        "node": { "type": "string", "pattern": "^nd_[a-z0-9_]+$" },
+        "predicate": { "type": "string" },
+        "value": {},
+        "effective": {
+          "type": "object",
+          "required": ["from", "to"],
+          "additionalProperties": false,
+          "properties": {
+            "from": { "type": ["string", "null"] },
+            "to": { "type": ["string", "null"], "description": "null means open interval — still in effect." }
+          }
+        },
+        "authority": {
+          "enum": ["binding", "derived", "proposed", "apocryphal"],
+          "description": "Authority is what makes this a canon layer rather than a knowledge graph. Two sources disagreeing is a conflict only at equal binding force."
+        },
+        "provenance": {
+          "type": "object",
+          "required": ["source", "asserted_by", "commit"],
+          "additionalProperties": false,
+          "properties": {
+            "source": { "type": "string" },
+            "asserted_by": { "type": "string" },
+            "commit": { "type": "string", "pattern": "^cm_[0-9]{4}$" },
+            "extractor": {
+              "type": "object",
+              "required": ["name", "version"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string" },
+                "version": { "type": "string" }
+              },
+              "description": "Present on every machine-origin claim. Extraction cannot create canon; it can only ask."
+            }
+          }
+        },
+        "status": { "enum": ["canon", "superseded", "apocryphal", "proposed"] },
+        "superseded_by": {
+          "type": "string",
+          "pattern": "^cl_[0-9]{4}$",
+          "description": "Required when status is 'superseded'. Canon does not forget; it supersedes."
+        },
+        "supersession_reason": {
+          "type": "string",
+          "description": "Required when status is 'superseded'. A supersession without a recorded reason is indistinguishable from a quiet deletion — see threat model T6."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "superseded" } }, "required": ["status"] },
+          "then": { "required": ["superseded_by", "supersession_reason"] }
+        }
+      ]
+    },
+
+    "edge": {
+      "type": "object",
+      "required": ["id", "from", "to", "type", "authority"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^eg_[0-9]{3,}$" },
+        "from": { "type": "string", "pattern": "^nd_[a-z0-9_]+$" },
+        "to": { "type": "string", "pattern": "^nd_[a-z0-9_]+$" },
+        "type": { "type": "string" },
+        "authority": { "enum": ["binding", "derived", "proposed", "apocryphal"] }
+      }
+    },
+
+    "commit": {
+      "type": "object",
+      "description": "Atomic change set. Parents form a DAG, not a tree.",
+      "required": ["id", "parents", "author", "authority", "message", "changes", "supersedes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^cm_[0-9]{4}$" },
+        "parents": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^cm_[0-9]{4}$" },
+          "description": "Empty only for the root commit."
+        },
+        "author": { "type": "string" },
+        "authority": { "enum": ["binding", "derived", "proposed", "apocryphal"] },
+        "message": { "type": "string" },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["op"],
+            "additionalProperties": false,
+            "properties": {
+              "op": { "enum": ["assert", "retract", "supersede", "add_node", "add_edge"] },
+              "claim": { "type": "string" },
+              "node": { "type": "string" },
+              "edge": { "type": "string" },
+              "target": { "type": "string" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "supersedes": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^cl_[0-9]{4}$" }
+        },
+        "git_sha": {
+          "type": "string",
+          "description": "The git commit carrying this canon commit. Cross-references the Datum-Commit trailer in git history so the two logs are mutually verifiable. Written after the fact — a commit cannot contain its own hash."
+        }
+      }
+    },
+
+    "branch": {
+      "type": "object",
+      "required": ["name", "head", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "head": { "type": "string", "pattern": "^cm_[0-9]{4}$" },
+        "kind": {
+          "enum": ["main", "proposal", "draft", "apocrypha"],
+          "description": "Branch conventions per spec section 1.5."
+        },
+        "description": { "type": "string" }
+      }
+    }
+  },
+
+  "oneOf": [
+    { "type": "array", "items": { "$ref": "#/definitions/node" } },
+    { "type": "array", "items": { "$ref": "#/definitions/claim" } },
+    { "type": "array", "items": { "$ref": "#/definitions/edge" } },
+    { "type": "array", "items": { "$ref": "#/definitions/commit" } },
+    { "type": "array", "items": { "$ref": "#/definitions/branch" } }
+  ]
+}
