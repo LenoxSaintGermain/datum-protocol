@@ -1,0 +1,47 @@
+Datum Protocol
+Copyright 2026 Third Signal Labs
+
+This repository is licensed under two licenses, deliberately.
+
+--------------------------------------------------------------------------
+Apache License 2.0  —  everything except benchmark/
+--------------------------------------------------------------------------
+
+  spec/          the protocol specification and threat model
+  conformance/   the conformance suite, vectors, and runner
+  canon/         the self-hosted canon of the specification
+  reference/     the reference implementation (when it lands)
+
+  See LICENSE.
+
+  Rationale: the protocol and the means of verifying conformance to it must
+  be freely implementable, including commercially, with a patent grant. A
+  protocol that cannot be implemented without permission is not a protocol.
+
+--------------------------------------------------------------------------
+Creative Commons Attribution 4.0 International  —  benchmark/
+--------------------------------------------------------------------------
+
+  benchmark/     the GREATGAME benchmark specification, datasheet, and
+                 annotation instances
+
+  See benchmark/LICENSE.
+
+  Rationale: the benchmark is a scholarly dataset. CC-BY is the license
+  academic work expects, and citability is the point of the artifact.
+
+--------------------------------------------------------------------------
+Third-party material
+--------------------------------------------------------------------------
+
+The GREATGAME corpus is the Doyle Sherlock Holmes canon, in the public
+domain in the United States as of January 1, 2023. Corpus text is not
+redistributed in this repository; instances reference pinned, checksummed
+Project Gutenberg editions by character offset.
+
+Scholarly works referenced by the benchmark — Knox (1911), Sayers (1946),
+Baring-Gould (1967), Klinger (2004-05), and articles in The Baker Street
+Journal — remain under their own copyright. The benchmark paraphrases and
+attributes their arguments and reproduces none of their text. Any verbatim
+scholarly text appearing in this repository is a defect; please report it
+as an issue.
