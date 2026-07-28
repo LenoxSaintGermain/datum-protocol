@@ -399,7 +399,7 @@ Default is `permissive` because silently omitting canon is worse than returning 
 
 - Claim extraction recall on `temporal_inference` hazards is the dominant unknown. Quantified by GREATGAME Task A.
 - Constraint expressiveness: declarative constraints cover the taxonomy in §2, but narrative rules like "magic has a cost" resist formalization. Out of scope for v1.
-- Canon poisoning under adversarial proposal load — see threat model.
+- Canon poisoning under adversarial proposal load — see [threat model](threat-model.md). Three threats there are open against this version and carry into v0.3 as normative work: corroboration collusion (T2, which the §8.4.1 dedup mechanism actively worsens), provenance forgery (T5, uncontrolled in v0.2), and supersession abuse (T6, auditable but not preventable).
 
 ---
 
