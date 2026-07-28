@@ -70,3 +70,5 @@ The CI gate at `.github/workflows/canon-gate.yml` enforces four things now: cano
 That last rule is the self-governance property in its enforceable form. A spec edit with no corresponding canon commit fails CI.
 
 What is *not* enforced yet: running `datum.check` against this canon to validate that a proposed spec change does not contradict a standing position. That needs the reference implementation and arrives with it. Claiming it now would be the one unforced error available — see the threat model on low coverage being mistaken for conformance.
+
+<!-- gate proof: accompanying canon touch -->
