@@ -297,7 +297,7 @@
     "value": "open",
     "effective": {
       "from": "v0.1",
-      "to": null
+      "to": "v0.2"
     },
     "authority": "binding",
     "provenance": {
@@ -305,7 +305,9 @@
       "asserted_by": "user:lenox",
       "commit": "cm_0001"
     },
-    "status": "canon"
+    "status": "superseded",
+    "superseded_by": "cl_0042",
+    "supersession_reason": "Ratified in v0.2 section 8.4. Note that threat model T2 finds mechanism 1 exploitable as written: corroboration counted by agent rather than by independent provenance lineage amplifies collusion rather than defending against it. That correction is open against v0.3."
   },
   {
     "id": "cl_0050",
@@ -542,6 +544,40 @@
       "source": "datum-spec-v0.2",
       "asserted_by": "user:lenox",
       "commit": "cm_0004"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0042",
+    "node": "nd_pos_proposal_load",
+    "predicate": "status",
+    "value": "resolved",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0005"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0043",
+    "node": "nd_pos_proposal_load",
+    "predicate": "resolution",
+    "value": "Proposal load is managed by four mechanisms in order of cheapness: deduplicate by claim hash; per-agent ratification budgets with backpressure that queues rather than rejects; auto-ratification thresholds requiring zero blocking violations, coverage above threshold, an allowlisted predicate, and an authoring agent whose historical ratification rate clears a bar; and curator delegation \u2014 a named principal with scoped, audited, revocable authority. Delegation, not automation. An agent's integrity score gates its delegated canon authority.",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0005"
     },
     "status": "canon"
   }
