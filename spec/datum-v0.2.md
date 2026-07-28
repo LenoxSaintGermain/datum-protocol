@@ -408,3 +408,5 @@ Default is `permissive` because silently omitting canon is worse than returning 
 Worldtree, running on LANDSAT, across live IP properties. Local-first Markdown vaults plus Firestore, retrieval through the Librarian, render validation at the FFmpeg / Veo boundary.
 
 The pitch, compressed: **studios buy Worldtree; developers mount Datum; same engine.**
+
+<!-- gate proof: a spec edit with no canon commit -->
