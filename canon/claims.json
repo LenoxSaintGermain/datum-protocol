@@ -4,9 +4,16 @@
     "node": "nd_spec",
     "predicate": "version",
     "value": "0.1",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -14,20 +21,33 @@
     "node": "nd_spec",
     "predicate": "design_rule",
     "value": "Agents get write access to proposals, never to truth.",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0100",
     "node": "nd_prim_supersession",
     "predicate": "raises_conflict",
     "value": false,
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#3", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#3",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -35,29 +55,63 @@
     "node": "nd_prim_supersession",
     "predicate": "deletes_target",
     "value": false,
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#3", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#3",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
     "id": "cl_0102",
     "node": "nd_prim_authority",
     "predicate": "tiers",
-    "value": ["binding", "derived", "proposed", "apocryphal"],
-    "effective": { "from": "v0.1", "to": null },
+    "value": [
+      "binding",
+      "derived",
+      "proposed",
+      "apocryphal"
+    ],
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#1.2", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#1.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
     "id": "cl_0103",
     "node": "nd_prim_constraint",
     "predicate": "kinds",
-    "value": ["cardinality", "domain", "temporal", "exclusion", "referential", "derivation", "authority"],
-    "effective": { "from": "v0.1", "to": null },
+    "value": [
+      "cardinality",
+      "domain",
+      "temporal",
+      "exclusion",
+      "referential",
+      "derivation",
+      "authority"
+    ],
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#2", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -65,9 +119,16 @@
     "node": "nd_tool_commit",
     "predicate": "callable_by_agent",
     "value": false,
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#4.3", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#4.3",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -75,9 +136,16 @@
     "node": "nd_tool_propose",
     "predicate": "callable_by_agent",
     "value": true,
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#4.3", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#4.3",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -85,20 +153,33 @@
     "node": "nd_tool_check",
     "predicate": "violation_requires_citation",
     "value": true,
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#4.2", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#4.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0010",
     "node": "nd_pos_extraction",
     "predicate": "question",
     "value": "Is turning prose into claims part of the protocol, or an adapter outside it?",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -106,20 +187,35 @@
     "node": "nd_pos_extraction",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": "v0.2"
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
-    "status": "canon"
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
+    "status": "superseded",
+    "superseded_by": "cl_0012",
+    "supersession_reason": "Ratified in v0.2 section 8.1. Putting extraction inside the spec would bound the spec's quality by model quality, which changes quarterly."
   },
-
   {
     "id": "cl_0020",
     "node": "nd_pos_constraint_eval",
     "predicate": "question",
     "value": "Does constraint evaluation run over the full graph or a scoped subset, and on which path?",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -127,20 +223,33 @@
     "node": "nd_pos_constraint_eval",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0030",
     "node": "nd_pos_federation",
     "predicate": "question",
-    "value": "How does one universe consume another's canon — by copy or by reference — and who holds which rights?",
-    "effective": { "from": "v0.1", "to": null },
+    "value": "How does one universe consume another's canon \u2014 by copy or by reference \u2014 and who holds which rights?",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -148,20 +257,33 @@
     "node": "nd_pos_federation",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0040",
     "node": "nd_pos_proposal_load",
     "predicate": "question",
     "value": "What stops a fleet of agents from burying the ratification path in proposals?",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -169,20 +291,33 @@
     "node": "nd_pos_proposal_load",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0050",
     "node": "nd_pos_reader_enforcement",
     "predicate": "question",
     "value": "When canon is contested, does read hide it, flag it, or refuse?",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -190,20 +325,33 @@
     "node": "nd_pos_reader_enforcement",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0060",
     "node": "nd_pos_temporal_recall",
     "predicate": "question",
     "value": "What is claim extraction recall on temporal inference hazards? This is the dominant unknown in the whole system.",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -211,20 +359,33 @@
     "node": "nd_pos_temporal_recall",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0070",
     "node": "nd_pos_constraint_expressiveness",
     "predicate": "question",
     "value": "Can rules like 'magic has a cost' be expressed declaratively, or do they resist formalization?",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -232,20 +393,33 @@
     "node": "nd_pos_constraint_expressiveness",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
-
   {
     "id": "cl_0080",
     "node": "nd_pos_canon_poisoning",
     "predicate": "question",
-    "value": "Is canon safe under adversarial — not merely high-volume — proposal load?",
-    "effective": { "from": "v0.1", "to": null },
+    "value": "Is canon safe under adversarial \u2014 not merely high-volume \u2014 proposal load?",
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
     "status": "canon"
   },
   {
@@ -253,9 +427,50 @@
     "node": "nd_pos_canon_poisoning",
     "predicate": "status",
     "value": "open",
-    "effective": { "from": "v0.1", "to": null },
+    "effective": {
+      "from": "v0.1",
+      "to": null
+    },
     "authority": "binding",
-    "provenance": { "source": "datum-spec-v0.1#8", "asserted_by": "user:lenox", "commit": "cm_0001" },
+    "provenance": {
+      "source": "datum-spec-v0.1#8",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0001"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0012",
+    "node": "nd_pos_extraction",
+    "predicate": "status",
+    "value": "resolved",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0002"
+    },
+    "status": "canon"
+  },
+  {
+    "id": "cl_0013",
+    "node": "nd_pos_extraction",
+    "predicate": "resolution",
+    "value": "Extraction is an adapter, not part of the protocol. The protocol operates on claims; turning prose into claims is pluggable, versioned, and carries its own model card. Machine-extracted claims default to 'proposed' and can never be 'binding' \u2014 extraction cannot create canon, it can only ask. Provenance records the extractor name and version, and re-validation sweeps are a first-class operation.",
+    "effective": {
+      "from": "v0.2",
+      "to": null
+    },
+    "authority": "binding",
+    "provenance": {
+      "source": "datum-spec-v0.2",
+      "asserted_by": "user:lenox",
+      "commit": "cm_0002"
+    },
     "status": "canon"
   }
 ]
