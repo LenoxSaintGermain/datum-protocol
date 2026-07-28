@@ -1,0 +1,94 @@
+name: canon gate
+
+# The protocol gating its own definition.
+#
+# Four jobs, all real today. What is deliberately NOT here: running datum.check
+# against canon/ to validate that a proposed spec change does not contradict a
+# standing position. That needs the reference implementation and arrives with
+# it. Claiming it now would be exactly the low-coverage-mistaken-for-conformance
+# failure the spec warns about in section 6.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+
+  validate:
+    name: canon and vectors are structurally sound
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate canon integrity, vector structure, and git trailers
+        run: python3 -m conformance.runner.validate
+
+  conformance:
+    name: conformance suite reports its expected profile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # The mock is partial on purpose. Asserting the exact profile means a
+      # change that quietly makes everything pass fails the build, which is the
+      # only way a suite with no reference implementation stays honest.
+      - name: Run against the deliberately partial mock adapter
+        run: |
+          python3 -m conformance.runner.run --adapter mock \
+            --expect-profile L1-read,L2-check,L3-supersession
+
+  spec-requires-canon:
+    name: no spec change without a canon commit
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: A change to spec/ must be accompanied by a change to canon/
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          CHANGED=$(git diff --name-only "$BASE" "$HEAD")
+
+          echo "$CHANGED" | sed 's/^/  /'
+
+          SPEC=$(echo "$CHANGED" | grep -c '^spec/' || true)
+          CANON=$(echo "$CHANGED" | grep -c '^canon/' || true)
+
+          if [ "$SPEC" -gt 0 ] && [ "$CANON" -eq 0 ]; then
+            echo
+            echo "FAIL: this pull request changes spec/ but not canon/."
+            echo
+            echo "The specification is versioned as canon in canon/. A change to a"
+            echo "normative statement is a change to a claim, and a change to a claim"
+            echo "needs a commit — with an authority and, where it reverses a prior"
+            echo "position, a recorded supersession reason."
+            echo
+            echo "Editing the spec without touching canon is the silent edit this"
+            echo "protocol exists to make impossible. See CONTRIBUTING.md."
+            exit 1
+          fi
+
+          echo
+          echo "OK: spec files changed: $SPEC, canon files changed: $CANON"
+
+  licenses:
+    name: license split is intact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apache-2.0 at root, CC-BY-4.0 scoped to benchmark
+        run: |
+          grep -q "Apache License" LICENSE
+          grep -q "Attribution 4.0 International" benchmark/LICENSE
+          echo "OK: Apache-2.0 at root, CC-BY-4.0 in benchmark/"

@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+title: "Datum: A Versioned Canon Layer for Multi-Agent Systems"
+message: "If you use this specification, benchmark, or conformance suite, please cite it."
+type: software
+authors:
+  # TODO: replace with the author's full name before the arXiv submission —
+  # a citation block is how this gets attributed for the next decade.
+  - name: "Third Signal Labs"
+    website: "https://github.com/LenoxSaintGermain"
+repository-code: "https://github.com/LenoxSaintGermain/datum-protocol"
+license: Apache-2.0
+version: "0.2"
+date-released: "2026-07-28"
+keywords:
+  - canon
+  - multi-agent systems
+  - knowledge consistency
+  - supersession
+  - contradiction detection
+  - provenance
+  - protocol
+abstract: >-
+  Datum is a versioned canon layer for multi-agent systems: a protocol for
+  recording what is true, since when, and on whose authority. Existing agent
+  primitives are append-or-retrieve and cannot detect that two things are both
+  asserted and cannot both be true. Datum adds authority tiers, declarative
+  constraints, and supersession — the primitive that distinguishes a deliberate
+  change to canon from an error, which is a retcon in narrative, an amendment in
+  policy, and a superseded decision record in engineering. Agents may read,
+  check, and propose; only an authorized principal may commit. The repository
+  includes the protocol specification, a threat model, the GREATGAME benchmark
+  specification for measuring supersession discrimination, and a conformance
+  suite. The specification is itself versioned as Datum canon.
+references:
+  - type: data
+    title: "GREATGAME: A Canon-Consistency Benchmark for Automated Contradiction and Supersession Detection"
+    version: "0.1"
+    license: CC-BY-4.0
+    authors:
+      - name: "Third Signal Labs"
+    notes: >-
+      Benchmark specification. Annotated instances are not yet released; see
+      benchmark/datasheet.md for current state and stated limitations.
