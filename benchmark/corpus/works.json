@@ -1,0 +1,123 @@
+{
+  "note": "Expected structure of the pinned corpus. Drives build.py, which fails loudly if a work cannot be located rather than guessing. Abbreviations are the Jay Finley Christ four-letter standard.",
+  "sources": [
+    {
+      "gutenberg_id": 244,
+      "title": "A Study in Scarlet",
+      "kind": "novel",
+      "works": [{ "abbrev": "STUD", "title": "A Study in Scarlet" }]
+    },
+    {
+      "gutenberg_id": 2097,
+      "title": "The Sign of the Four",
+      "kind": "novel",
+      "works": [{ "abbrev": "SIGN", "title": "The Sign of the Four" }]
+    },
+    {
+      "gutenberg_id": 2852,
+      "title": "The Hound of the Baskervilles",
+      "kind": "novel",
+      "works": [{ "abbrev": "HOUN", "title": "The Hound of the Baskervilles" }]
+    },
+    {
+      "gutenberg_id": 3289,
+      "title": "The Valley of Fear",
+      "kind": "novel",
+      "works": [{ "abbrev": "VALL", "title": "The Valley of Fear" }]
+    },
+    {
+      "gutenberg_id": 1661,
+      "title": "The Adventures of Sherlock Holmes",
+      "kind": "collection",
+      "works": [
+        { "abbrev": "SCAN", "title": "A Scandal in Bohemia" },
+        { "abbrev": "REDH", "title": "The Red-Headed League" },
+        { "abbrev": "IDEN", "title": "A Case of Identity" },
+        { "abbrev": "BOSC", "title": "The Boscombe Valley Mystery" },
+        { "abbrev": "FIVE", "title": "The Five Orange Pips" },
+        { "abbrev": "TWIS", "title": "The Man with the Twisted Lip" },
+        { "abbrev": "BLUE", "title": "The Adventure of the Blue Carbuncle" },
+        { "abbrev": "SPEC", "title": "The Adventure of the Speckled Band" },
+        { "abbrev": "ENGR", "title": "The Adventure of the Engineer's Thumb" },
+        { "abbrev": "NOBL", "title": "The Adventure of the Noble Bachelor" },
+        { "abbrev": "BERY", "title": "The Adventure of the Beryl Coronet" },
+        { "abbrev": "COPP", "title": "The Adventure of the Copper Beeches" }
+      ]
+    },
+    {
+      "gutenberg_id": 834,
+      "title": "The Memoirs of Sherlock Holmes",
+      "kind": "collection",
+      "edition_note": "This edition places The Cardboard Box (CARD) in Memoirs. Other editions place it in His Last Bow. The placement is an edition property, not a canon fact — instances cite CARD by abbreviation and character offset, so the pinned edition is what makes the offset meaningful.",
+      "works": [
+        { "abbrev": "SILV", "title": "Silver Blaze" },
+        { "abbrev": "CARD", "title": "The Adventure of the Cardboard Box" },
+        { "abbrev": "YELL", "title": "The Yellow Face" },
+        { "abbrev": "STOC", "title": "The Stockbroker's Clerk" },
+        { "abbrev": "GLOR", "title": "The “Gloria Scott”" },
+        { "abbrev": "MUSG", "title": "The Musgrave Ritual" },
+        { "abbrev": "REIG", "title": "The Reigate Squires" },
+        { "abbrev": "CROO", "title": "The Crooked Man" },
+        { "abbrev": "RESI", "title": "The Resident Patient" },
+        { "abbrev": "GREE", "title": "The Greek Interpreter" },
+        { "abbrev": "NAVA", "title": "The Naval Treaty" },
+        { "abbrev": "FINA", "title": "The Final Problem" }
+      ]
+    },
+    {
+      "gutenberg_id": 108,
+      "title": "The Return of Sherlock Holmes",
+      "kind": "collection",
+      "works": [
+        { "abbrev": "EMPT", "title": "The Adventure of the Empty House" },
+        { "abbrev": "NORW", "title": "The Adventure of the Norwood Builder" },
+        { "abbrev": "DANC", "title": "The Adventure of the Dancing Men" },
+        { "abbrev": "SOLI", "title": "The Adventure of the Solitary Cyclist" },
+        { "abbrev": "PRIO", "title": "The Adventure of the Priory School" },
+        { "abbrev": "BLAC", "title": "The Adventure of Black Peter" },
+        { "abbrev": "CHAS", "title": "The Adventure of Charles Augustus Milverton" },
+        { "abbrev": "SIXN", "title": "The Adventure of the Six Napoleons" },
+        { "abbrev": "3STU", "title": "The Adventure of the Three Students" },
+        { "abbrev": "GOLD", "title": "The Adventure of the Golden Pince-Nez" },
+        { "abbrev": "MISS", "title": "The Adventure of the Missing Three-Quarter" },
+        { "abbrev": "ABBE", "title": "The Adventure of the Abbey Grange" },
+        { "abbrev": "SECO", "title": "The Adventure of the Second Stain" }
+      ]
+    },
+    {
+      "gutenberg_id": 2350,
+      "title": "His Last Bow",
+      "kind": "collection",
+      "edition_note": "Seven stories. The Cardboard Box is not present in this edition; see Memoirs.",
+      "works": [
+        { "abbrev": "WIST", "title": "The Adventure of Wisteria Lodge" },
+        { "abbrev": "BRUC", "title": "The Adventure of the Bruce-Partington Plans" },
+        { "abbrev": "DEVI", "title": "The Adventure of the Devil's Foot" },
+        { "abbrev": "REDC", "title": "The Adventure of the Red Circle" },
+        { "abbrev": "LADY", "title": "The Disappearance of Lady Frances Carfax" },
+        { "abbrev": "DYIN", "title": "The Adventure of the Dying Detective" },
+        { "abbrev": "LAST", "title": "His Last Bow: The War Service of Sherlock Holmes" }
+      ]
+    },
+    {
+      "gutenberg_id": 69700,
+      "title": "The Case-Book of Sherlock Holmes",
+      "kind": "collection",
+      "edition_note": "Entered the US public domain on 1 January 2023, which is what makes the full canon usable.",
+      "works": [
+        { "abbrev": "ILLU", "title": "The Adventure of the Illustrious Client" },
+        { "abbrev": "BLAN", "title": "The Adventure of the Blanched Soldier" },
+        { "abbrev": "MAZA", "title": "The Adventure of the Mazarin Stone" },
+        { "abbrev": "3GAB", "title": "The Adventure of the Three Gables" },
+        { "abbrev": "SUSS", "title": "The Adventure of the Sussex Vampire" },
+        { "abbrev": "3GAR", "title": "The Adventure of the Three Garridebs" },
+        { "abbrev": "THOR", "title": "The Problem of Thor Bridge" },
+        { "abbrev": "CREE", "title": "The Adventure of the Creeping Man" },
+        { "abbrev": "LION", "title": "The Adventure of the Lion's Mane" },
+        { "abbrev": "VEIL", "title": "The Adventure of the Veiled Lodger" },
+        { "abbrev": "SHOS", "title": "The Adventure of Shoscombe Old Place" },
+        { "abbrev": "RETI", "title": "The Adventure of the Retired Colourman" }
+      ]
+    }
+  ]
+}

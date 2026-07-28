@@ -1,0 +1,541 @@
+{
+  "corpus": "Doyle Sherlock Holmes canon",
+  "public_domain": "United States, as of 1 January 2023",
+  "retrieved_from": "Project Gutenberg",
+  "normalization": [
+    "Project Gutenberg header and footer removed",
+    "CRLF and CR normalized to LF",
+    "leading and trailing whitespace of each work stripped",
+    "no other transformation \u2014 curly quotes, dashes, and italic markers left as-is"
+  ],
+  "offset_convention": "char_span indices are Python string indices into the normalized per-work text produced by this script, decoded as UTF-8",
+  "sources": [
+    {
+      "gutenberg_id": 244,
+      "title": "A Study in Scarlet",
+      "kind": "novel",
+      "url": "https://www.gutenberg.org/cache/epub/244/pg244.txt",
+      "raw_sha256": "5585b5b855da89db3f92f05ffd16b61e8817290fbaf53faba0ebe8945459dfca",
+      "normalized_sha256": "d6a929f41ddd3052ab545036f1f76c41ee865a1b144a78dab39fe4739a2f271e",
+      "normalized_chars": 239426,
+      "works": [
+        "STUD"
+      ]
+    },
+    {
+      "gutenberg_id": 2097,
+      "title": "The Sign of the Four",
+      "kind": "novel",
+      "url": "https://www.gutenberg.org/cache/epub/2097/pg2097.txt",
+      "raw_sha256": "e0639bb2168c46bb603701d69735c157379871ebd8befdf50076675535e059b7",
+      "normalized_sha256": "e65f99ce182b72eb172f31555f4d7592efa04577beb2aab9de5f3b37eab79e59",
+      "normalized_chars": 232121,
+      "works": [
+        "SIGN"
+      ]
+    },
+    {
+      "gutenberg_id": 2852,
+      "title": "The Hound of the Baskervilles",
+      "kind": "novel",
+      "url": "https://www.gutenberg.org/cache/epub/2852/pg2852.txt",
+      "raw_sha256": "d7f543e7c3c7a686a6332c2a013fa02ac808a3ec6d36d336416fdbc88079f0ec",
+      "normalized_sha256": "9136797d60b0293b4bd879783abfe090dfffe56c989c8f2c511c20c3950d32c4",
+      "normalized_chars": 354122,
+      "works": [
+        "HOUN"
+      ]
+    },
+    {
+      "gutenberg_id": 3289,
+      "title": "The Valley of Fear",
+      "kind": "novel",
+      "url": "https://www.gutenberg.org/cache/epub/3289/pg3289.txt",
+      "raw_sha256": "69a911e05bf7969f200d2c807ad00893e98732e69682eb90c4330a5e3c8a03b2",
+      "normalized_sha256": "e66d8643d70c968fa6746069f6ea1874e428a62556792d7466cb8034c1e401ff",
+      "normalized_chars": 313579,
+      "works": [
+        "VALL"
+      ]
+    },
+    {
+      "gutenberg_id": 1661,
+      "title": "The Adventures of Sherlock Holmes",
+      "kind": "collection",
+      "url": "https://www.gutenberg.org/cache/epub/1661/pg1661.txt",
+      "raw_sha256": "51bf912e17919195e50cfa25458a6660ef35e00a5f44598b221196285c2220a5",
+      "normalized_sha256": "f9544c4c28388b5e38ab4fffcf9aa719eeda1ba46ee3bb426815e978825bdc13",
+      "normalized_chars": 562202,
+      "works": [
+        "SCAN",
+        "REDH",
+        "IDEN",
+        "BOSC",
+        "FIVE",
+        "TWIS",
+        "BLUE",
+        "SPEC",
+        "ENGR",
+        "NOBL",
+        "BERY",
+        "COPP"
+      ]
+    },
+    {
+      "gutenberg_id": 834,
+      "title": "The Memoirs of Sherlock Holmes",
+      "kind": "collection",
+      "url": "https://www.gutenberg.org/cache/epub/834/pg834.txt",
+      "raw_sha256": "09e3f704c789a6dce9674eac4ca1f70d66d9f44b207cacbc682bc83d28eeae41",
+      "normalized_sha256": "bfd17635aa1d407e00622105fcff30084a6bfb8c113baa8aae74d8717967306e",
+      "normalized_chars": 569553,
+      "works": [
+        "SILV",
+        "CARD",
+        "YELL",
+        "STOC",
+        "GLOR",
+        "MUSG",
+        "REIG",
+        "CROO",
+        "RESI",
+        "GREE",
+        "NAVA",
+        "FINA"
+      ],
+      "edition_note": "This edition places The Cardboard Box (CARD) in Memoirs. Other editions place it in His Last Bow. The placement is an edition property, not a canon fact \u2014 instances cite CARD by abbreviation and character offset, so the pinned edition is what makes the offset meaningful."
+    },
+    {
+      "gutenberg_id": 108,
+      "title": "The Return of Sherlock Holmes",
+      "kind": "collection",
+      "url": "https://www.gutenberg.org/cache/epub/108/pg108.txt",
+      "raw_sha256": "cd494989dc239933cc53aab4a33742d0ceba1eaf0c4cb3239b104af7d93171c1",
+      "normalized_sha256": "f0aa52a8338151e9dba3a34de4e5589edc4a4a0de6ba377d20f80afb631e2c1e",
+      "normalized_chars": 673677,
+      "works": [
+        "EMPT",
+        "NORW",
+        "DANC",
+        "SOLI",
+        "PRIO",
+        "BLAC",
+        "CHAS",
+        "SIXN",
+        "3STU",
+        "GOLD",
+        "MISS",
+        "ABBE",
+        "SECO"
+      ]
+    },
+    {
+      "gutenberg_id": 2350,
+      "title": "His Last Bow",
+      "kind": "collection",
+      "url": "https://www.gutenberg.org/cache/epub/2350/pg2350.txt",
+      "raw_sha256": "80bf5353fb9e412bc265bfe53099abba6a97a0d326e0fb1734be3f6825e89483",
+      "normalized_sha256": "e51805d890985e0063098fd553987000a2e1f53ad1911ab24311008ed5a0dccd",
+      "normalized_chars": 323846,
+      "works": [
+        "WIST",
+        "BRUC",
+        "DEVI",
+        "REDC",
+        "LADY",
+        "DYIN",
+        "LAST"
+      ],
+      "edition_note": "Seven stories. The Cardboard Box is not present in this edition; see Memoirs."
+    },
+    {
+      "gutenberg_id": 69700,
+      "title": "The Case-Book of Sherlock Holmes",
+      "kind": "collection",
+      "url": "https://www.gutenberg.org/cache/epub/69700/pg69700.txt",
+      "raw_sha256": "daec8c4e61ca07b563938f2d9b0dea1c5da81a2ee1469f6f2a56ec69cd974113",
+      "normalized_sha256": "5f44004a11ed269d312715e13e3b207e3c3db23aeeb2bed7ede5f2e985435de3",
+      "normalized_chars": 453755,
+      "works": [
+        "ILLU",
+        "BLAN",
+        "MAZA",
+        "3GAB",
+        "SUSS",
+        "3GAR",
+        "THOR",
+        "CREE",
+        "LION",
+        "VEIL",
+        "SHOS",
+        "RETI"
+      ],
+      "edition_note": "Entered the US public domain on 1 January 2023, which is what makes the full canon usable."
+    }
+  ],
+  "works": {
+    "STUD": {
+      "title": "A Study in Scarlet",
+      "source": 244,
+      "chars": 239426,
+      "sha256": "d6a929f41ddd3052ab545036f1f76c41ee865a1b144a78dab39fe4739a2f271e"
+    },
+    "SIGN": {
+      "title": "The Sign of the Four",
+      "source": 2097,
+      "chars": 232121,
+      "sha256": "e65f99ce182b72eb172f31555f4d7592efa04577beb2aab9de5f3b37eab79e59"
+    },
+    "HOUN": {
+      "title": "The Hound of the Baskervilles",
+      "source": 2852,
+      "chars": 354122,
+      "sha256": "9136797d60b0293b4bd879783abfe090dfffe56c989c8f2c511c20c3950d32c4"
+    },
+    "VALL": {
+      "title": "The Valley of Fear",
+      "source": 3289,
+      "chars": 313579,
+      "sha256": "e66d8643d70c968fa6746069f6ea1874e428a62556792d7466cb8034c1e401ff"
+    },
+    "SCAN": {
+      "title": "A Scandal in Bohemia",
+      "source": 1661,
+      "chars": 46518,
+      "sha256": "4fb78430df8b33b6472c75d61c4244899f0e10aa1b406f71cb34002920d93b7f"
+    },
+    "REDH": {
+      "title": "The Red-Headed League",
+      "source": 1661,
+      "chars": 49256,
+      "sha256": "03c84c26d40baabd1452bf9a0d521e0a576cd2d9d6eede5e3aeebd8547af8923"
+    },
+    "IDEN": {
+      "title": "A Case of Identity",
+      "source": 1661,
+      "chars": 37916,
+      "sha256": "6297cce064be6ad0f361ebc6e77cff55d75a46ceb709e2b0814d2bce5a868f8d"
+    },
+    "BOSC": {
+      "title": "The Boscombe Valley Mystery",
+      "source": 1661,
+      "chars": 51353,
+      "sha256": "96f12f0ed571bec269996b932161d226841fb55d683ef9d5e1010c36f335ddb7"
+    },
+    "FIVE": {
+      "title": "The Five Orange Pips",
+      "source": 1661,
+      "chars": 39444,
+      "sha256": "21ca65ab45dfed3e1215d6851d73d0bd4265d642b836435bf405885190d7369e"
+    },
+    "TWIS": {
+      "title": "The Man with the Twisted Lip",
+      "source": 1661,
+      "chars": 49160,
+      "sha256": "efcc9c7b8b21264df76c61149d73e260f80f3881168e9b30e6b093dc2c6e3d07"
+    },
+    "BLUE": {
+      "title": "The Adventure of the Blue Carbuncle",
+      "source": 1661,
+      "chars": 42114,
+      "sha256": "ac46c4deb043f96cc4325ba972bd4c04cf07d3e9eb9b6d468c0e3fd8fb9f1238"
+    },
+    "SPEC": {
+      "title": "The Adventure of the Speckled Band",
+      "source": 1661,
+      "chars": 52949,
+      "sha256": "2fd29e190d81726a63a054a002b9785a677b2b5d2da51edc04da39ecc762ca29"
+    },
+    "ENGR": {
+      "title": "The Adventure of the Engineer's Thumb",
+      "source": 1661,
+      "chars": 44602,
+      "sha256": "42f94244addd9079da3a6e55ded7889f0de6f7591f6afa3f737732ac2f2c1179"
+    },
+    "NOBL": {
+      "title": "The Adventure of the Noble Bachelor",
+      "source": 1661,
+      "chars": 44149,
+      "sha256": "b49154953c41149fda89e83d2f11a5d5869a49c71ab049794b5659136e9f8643"
+    },
+    "BERY": {
+      "title": "The Adventure of the Beryl Coronet",
+      "source": 1661,
+      "chars": 51001,
+      "sha256": "65110922a36b6fd6591889cb11410afba7b33b281efddbf81b66212069f47de3"
+    },
+    "COPP": {
+      "title": "The Adventure of the Copper Beeches",
+      "source": 1661,
+      "chars": 53136,
+      "sha256": "1edd893d5c60d94a257dff9e57d30283875edfb4acad4c448da2bd8bf491738a"
+    },
+    "SILV": {
+      "title": "Silver Blaze",
+      "source": 834,
+      "chars": 58110,
+      "sha256": "d91cc70976f58f4e3973fcae9da2ed8b611db2fba3fe4ce5b1bcad9d4538aac6"
+    },
+    "CARD": {
+      "title": "The Adventure of the Cardboard Box",
+      "source": 834,
+      "chars": 50861,
+      "sha256": "9eebde05c55f043817441313d46e3ea6d9e7096eee14f8f7b3c2a43653313798"
+    },
+    "YELL": {
+      "title": "The Yellow Face",
+      "source": 834,
+      "chars": 43196,
+      "sha256": "516c6f7ae1a44e3717b1fcfd88fa0c864dd0800df5eb0b00e8f9c7af268204e7"
+    },
+    "STOC": {
+      "title": "The Stockbroker's Clerk",
+      "source": 834,
+      "chars": 40506,
+      "sha256": "8c3dd67e1519b43442b4e84c23c07951801eb910915fa1dcd10a2da6dedc3ad5"
+    },
+    "GLOR": {
+      "title": "The \u201cGloria Scott\u201d",
+      "source": 834,
+      "chars": 45786,
+      "sha256": "288426a419ca78d2a908c87534e2409b0843587eb6659b4a75e6e858d29659e3"
+    },
+    "MUSG": {
+      "title": "The Musgrave Ritual",
+      "source": 834,
+      "chars": 44875,
+      "sha256": "39df346cc5875c819d258fc3ca75083dbf5521281f6724e989260f9c008f7588"
+    },
+    "REIG": {
+      "title": "The Reigate Squires",
+      "source": 834,
+      "chars": 43650,
+      "sha256": "5c7471790753c89042dd2e2e94bf54298a262965f85f2c482a9519e907dce0c7"
+    },
+    "CROO": {
+      "title": "The Crooked Man",
+      "source": 834,
+      "chars": 42043,
+      "sha256": "4e02c5afd1b749ff43436a5cf46addec86d1240b36e2afaa1a5dda382c4be628"
+    },
+    "RESI": {
+      "title": "The Resident Patient",
+      "source": 834,
+      "chars": 39348,
+      "sha256": "b10bb20d0271f0719c55b75ed0ee9e0ac81fe92701d92fdb918a8930fd166630"
+    },
+    "GREE": {
+      "title": "The Greek Interpreter",
+      "source": 834,
+      "chars": 42473,
+      "sha256": "151a31da204bed9bfe55ed7199b77bfb71a929d8665f2baa04126a24398e23da"
+    },
+    "NAVA": {
+      "title": "The Naval Treaty",
+      "source": 834,
+      "chars": 75650,
+      "sha256": "d70c7ad4e413065be29b1892ccaf70f1526ed6fda32b26a4df35e2c8d3eb35ad"
+    },
+    "FINA": {
+      "title": "The Final Problem",
+      "source": 834,
+      "chars": 42588,
+      "sha256": "4aa7f4021fe729771191a6658dd2a0b54e8ad871d380a6907114d73d61506d1b"
+    },
+    "EMPT": {
+      "title": "The Adventure of the Empty House",
+      "source": 108,
+      "chars": 52220,
+      "sha256": "4bd0648761a92c7ba6566648b60ffc02e2d2859f415cc71ad1cbe43d2607cee3"
+    },
+    "NORW": {
+      "title": "The Adventure of the Norwood Builder",
+      "source": 108,
+      "chars": 55811,
+      "sha256": "badc5940cb43c65cd67d5e1a9a5ee8d30ace30ca70c64136fdf85d987dc9c77b"
+    },
+    "DANC": {
+      "title": "The Adventure of the Dancing Men",
+      "source": 108,
+      "chars": 57149,
+      "sha256": "4732d56290124df94e62f40648627a0fc3cf0327fcf878aa9db24cf7242d64fd"
+    },
+    "SOLI": {
+      "title": "The Adventure of the Solitary Cyclist",
+      "source": 108,
+      "chars": 46819,
+      "sha256": "567f9bc6fea6a4e514e446545852bdbd84dbdd38b64e1dee5b1c50ffed216ddc"
+    },
+    "PRIO": {
+      "title": "The Adventure of the Priory School",
+      "source": 108,
+      "chars": 69180,
+      "sha256": "a5e11fb43fe62dea727f4203ea47f70d29f62bbaacef7a81d8fb0a839b1d0520"
+    },
+    "BLAC": {
+      "title": "The Adventure of Black Peter",
+      "source": 108,
+      "chars": 48417,
+      "sha256": "760fa71898cd7a8c9b5e34210485f561ae9c19e43568995785684d946d0ed763"
+    },
+    "CHAS": {
+      "title": "The Adventure of Charles Augustus Milverton",
+      "source": 108,
+      "chars": 40351,
+      "sha256": "2e2c5dd2308a5d879a3e846dde1b5d70f8cb8e20c581538bd870e70befb238a6"
+    },
+    "SIXN": {
+      "title": "The Adventure of the Six Napoleons",
+      "source": 108,
+      "chars": 49692,
+      "sha256": "512ff343328ce640e7a86cf310d2f7f8a937e502cd2eea04e6a2393c58257abe"
+    },
+    "3STU": {
+      "title": "The Adventure of the Three Students",
+      "source": 108,
+      "chars": 38969,
+      "sha256": "2faf4f04ad69de0448a59d50050cd4e1d44c091148da3437a09812e29e37d7d4"
+    },
+    "GOLD": {
+      "title": "The Adventure of the Golden Pince-Nez",
+      "source": 108,
+      "chars": 53278,
+      "sha256": "2aed193c40e46fc80b0e5ee9efbc60636cf6856f89fef4c3b9097dd73516b4ee"
+    },
+    "MISS": {
+      "title": "The Adventure of the Missing Three-Quarter",
+      "source": 108,
+      "chars": 48493,
+      "sha256": "393c91f9084bbb8ebccb070070028e0c4a64dca855eea7dc246f6d7185c458a1"
+    },
+    "ABBE": {
+      "title": "The Adventure of the Abbey Grange",
+      "source": 108,
+      "chars": 53821,
+      "sha256": "e2e24fcaac6a181de9293e8ca55b69f0a80cd6d502d5b10c4a6a39c7d6e45a93"
+    },
+    "SECO": {
+      "title": "The Adventure of the Second Stain",
+      "source": 108,
+      "chars": 58860,
+      "sha256": "a7b63aefcae72ed36ede2a2a6402e769b3487d5f5665cb13b9dac8b5c1f729e0"
+    },
+    "WIST": {
+      "title": "The Adventure of Wisteria Lodge",
+      "source": 2350,
+      "chars": 62222,
+      "sha256": "c870366d5e5bd8bf187abe6f4f6a21cefc0a36dcb5981f450e42f7a604f928d0"
+    },
+    "BRUC": {
+      "title": "The Adventure of the Bruce-Partington Plans",
+      "source": 2350,
+      "chars": 59160,
+      "sha256": "a36c9e57916154a1da32f6accc5091245e15f70b4a128c6d8ebdb85045cfdecc"
+    },
+    "DEVI": {
+      "title": "The Adventure of the Devil's Foot",
+      "source": 2350,
+      "chars": 55185,
+      "sha256": "bca8a1cbf602a8108061eeb1d1a59b1648a2ecafac82a285d2dd6e030b392fb6"
+    },
+    "REDC": {
+      "title": "The Adventure of the Red Circle",
+      "source": 2350,
+      "chars": 39646,
+      "sha256": "da72a4495c09b5aaadf3d8f2a971ece3860b84a42ecb74ce8d4feaeeb687ee9c"
+    },
+    "LADY": {
+      "title": "The Disappearance of Lady Frances Carfax",
+      "source": 2350,
+      "chars": 42133,
+      "sha256": "4347b188ea94b706948751d9f92c7b1b954b6ded96fa65d50eb530962f403555"
+    },
+    "DYIN": {
+      "title": "The Adventure of the Dying Detective",
+      "source": 2350,
+      "chars": 31334,
+      "sha256": "8298bfe742e253eb9eb3918d83fd2ab029952f405328cbf213b5b5827dcabb38"
+    },
+    "LAST": {
+      "title": "His Last Bow: The War Service of Sherlock Holmes",
+      "source": 2350,
+      "chars": 32952,
+      "sha256": "d3f976554580fa25de3cd3e46f68321d114fb84709124297dac9226a490c2047"
+    },
+    "ILLU": {
+      "title": "The Adventure of the Illustrious Client",
+      "source": 69700,
+      "chars": 53067,
+      "sha256": "6898a4f62add9a46bcaff5b866b5e8bcaf6315082a5eed584d0659c500e2b967"
+    },
+    "BLAN": {
+      "title": "The Adventure of the Blanched Soldier",
+      "source": 69700,
+      "chars": 41684,
+      "sha256": "9a43711cfd7acfd5777d6b6b94c6c2293001a96fe5185f28566ed081504f7cbb"
+    },
+    "MAZA": {
+      "title": "The Adventure of the Mazarin Stone",
+      "source": 69700,
+      "chars": 31367,
+      "sha256": "8160be0b531925b59a836ceff265136682d38da1f26b72a4a86ba6b0ace480f5"
+    },
+    "3GAB": {
+      "title": "The Adventure of the Three Gables",
+      "source": 69700,
+      "chars": 32878,
+      "sha256": "c93bc0a134e3e0f57e52fa68596d611cc7221a0232b4cd4969230f52282e10e8"
+    },
+    "SUSS": {
+      "title": "The Adventure of the Sussex Vampire",
+      "source": 69700,
+      "chars": 32743,
+      "sha256": "d75f6eca5f7ec77b3314e49e7e2231a5dc1825ead893706158b9c1f923f0efbe"
+    },
+    "3GAR": {
+      "title": "The Adventure of the Three Garridebs",
+      "source": 69700,
+      "chars": 34241,
+      "sha256": "3f94dbc0b3b7b371ae6f824ab298dc4a020c8e7e3c8ca454afb671eaa6cdd1b2"
+    },
+    "THOR": {
+      "title": "The Problem of Thor Bridge",
+      "source": 69700,
+      "chars": 52119,
+      "sha256": "35eb0c8586a1baff39e215b34ff7d0a17f20b2763cdaa0a61df4ffcfbdb4e5bc"
+    },
+    "CREE": {
+      "title": "The Adventure of the Creeping Man",
+      "source": 69700,
+      "chars": 42715,
+      "sha256": "5c294fec6c4e74dd23ec8faf84fe88f7cf96eeb49a979a1f17dbcaf8a14713a9"
+    },
+    "LION": {
+      "title": "The Adventure of the Lion's Mane",
+      "source": 69700,
+      "chars": 39399,
+      "sha256": "b424dd7a5773cc3f4274f70408121a9b78b56a9a043dacdc5fed643de4e07547"
+    },
+    "VEIL": {
+      "title": "The Adventure of the Veiled Lodger",
+      "source": 69700,
+      "chars": 23927,
+      "sha256": "c73c144fa60ff2f542c97cfa3b6078ced524a8f1a107aaa2d42c7ead9e6b8054"
+    },
+    "SHOS": {
+      "title": "The Adventure of Shoscombe Old Place",
+      "source": 69700,
+      "chars": 33644,
+      "sha256": "72a976b37bd686f3a2cd13f3982a2e8761e71fbdcf17dfc704d46ae17c339f26"
+    },
+    "RETI": {
+      "title": "The Adventure of the Retired Colourman",
+      "source": 69700,
+      "chars": 31770,
+      "sha256": "e1a949b35bb188d0338ce6684c77d5a3fe1d242d68523b082fab2c1b06a57f6f"
+    }
+  },
+  "work_count": 60,
+  "story_count": 56,
+  "novel_count": 4
+}
